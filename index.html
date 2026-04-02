@@ -32,7 +32,7 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     html {
-      scroll-padding-top: 80px;
+      scroll-padding-top: 60px;
       touch-action: pan-y;
     }
 
@@ -181,13 +181,18 @@
 
     /* ===== DAY NAVIGATION ===== */
     .day-nav {
-      position: sticky;
+      position: fixed;
       top: 0;
+      left: 0;
+      right: 0;
       z-index: 100;
       background: var(--navy);
       border-bottom: 1px solid rgba(201,168,76,0.2);
       box-shadow: var(--shadow-md);
     }
+
+    /* Add padding to body to offset fixed nav */
+
 
     .day-nav-inner {
       overflow-x: auto;
@@ -372,6 +377,7 @@
       overflow: hidden;
       border: 1px solid rgba(13,27,42,0.06);
       transition: box-shadow 0.3s ease;
+      scroll-margin-top: 60px;
     }
 
     .day-card:hover {
