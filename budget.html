@@ -37,6 +37,11 @@
     }
 
     body {
+      overflow-x: hidden;
+      max-width: 100vw;
+    }
+
+    body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       background: var(--cream);
       color: var(--text-body);
@@ -148,13 +153,17 @@
 
     .hero-stat {
       text-align: center;
+      min-width: 0;
+      flex: 1;
     }
 
     .hero-stat-num {
       font-family: 'Playfair Display', serif;
-      font-size: 2rem;
+      font-size: clamp(1.2rem, 5vw, 2rem);
       font-weight: 700;
       color: var(--gold);
+      overflow-wrap: break-word;
+      word-break: break-word;
     }
 
     .hero-stat-label {
@@ -283,14 +292,17 @@
 
     .grand-total-krw .gt-amount {
       font-family: 'Playfair Display', serif;
-      font-size: 2.8rem;
+      font-size: clamp(1.8rem, 6vw, 2.8rem);
       font-weight: 800;
       color: var(--cream);
-      line-height: 1;
+      line-height: 1.1;
+      overflow-wrap: break-word;
+      word-break: break-word;
+      hyphens: auto;
     }
 
     .grand-total-krw .gt-sub {
-      font-size: 0.8rem;
+      font-size: clamp(0.7rem, 2vw, 0.8rem);
       color: rgba(245,240,232,0.5);
       margin-top: 4px;
     }
@@ -307,10 +319,13 @@
 
     .grand-total-sgd .gt-amount {
       font-family: 'Playfair Display', serif;
-      font-size: 2.8rem;
+      font-size: clamp(1.8rem, 6vw, 2.8rem);
       font-weight: 800;
       color: var(--gold);
-      line-height: 1;
+      line-height: 1.1;
+      overflow-wrap: break-word;
+      word-break: break-word;
+      hyphens: auto;
     }
 
     .grand-total-sgd .gt-sub {
@@ -321,10 +336,12 @@
 
     .grand-total-note {
       text-align: center;
-      font-size: 0.72rem;
+      font-size: clamp(0.65rem, 1.8vw, 0.72rem);
       color: rgba(245,240,232,0.4);
       margin-top: 12px;
       grid-column: 1 / -1;
+      line-height: 1.5;
+      overflow-wrap: break-word;
     }
 
     @media (max-width: 600px) {
@@ -557,8 +574,14 @@
     }
 
     /* Tables */
+    .category-body {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
     .budget-table {
       width: 100%;
+      min-width: 500px;
       border-collapse: collapse;
     }
 
@@ -791,6 +814,11 @@
     /* ===== PER-DAY TABLE ===== */
     .perday-section {
       margin-bottom: 28px;
+      overflow-x: auto;
+    }
+
+    .perday-section .budget-table {
+      min-width: 600px;
     }
 
     .perday-header {
@@ -1015,7 +1043,7 @@
     .footer-stats {
       display: flex;
       justify-content: center;
-      gap: 32px;
+      gap: 24px;
       flex-wrap: wrap;
     }
 
@@ -1024,13 +1052,16 @@
       flex-direction: column;
       align-items: center;
       gap: 4px;
+      min-width: 60px;
     }
 
     .footer-stat-val {
       font-family: 'Playfair Display', serif;
-      font-size: 1.3rem;
+      font-size: clamp(1.1rem, 3vw, 1.3rem);
       font-weight: 700;
       color: var(--gold);
+      overflow-wrap: break-word;
+      word-break: break-word;
     }
 
     .footer-stat-key {
@@ -1096,16 +1127,28 @@
     /* ===== RESPONSIVE ===== */
     @media (max-width: 640px) {
       .hero { min-height: 55vh; padding: 60px 20px 40px; }
-      .hero-stats { gap: 20px; }
-      .hero-stat-num { font-size: 1.5rem; }
-      .grand-total-card { padding: 24px 20px; }
-      .grand-total-krw .gt-amount,
-      .grand-total-sgd .gt-amount { font-size: 2.2rem; }
-      .budget-table th, .budget-table td { padding: 9px 14px; }
+      .hero-stats { gap: 16px; flex-wrap: wrap; justify-content: center; }
+      .hero-stat { min-width: 80px; }
+      .grand-total-card { padding: 24px 20px; gap: 16px; }
+      .budget-table th, .budget-table td { padding: 8px 12px; font-size: 0.78rem; }
+      .budget-table th { font-size: 0.58rem; }
       .category-header { padding: 20px 20px 16px; }
       .flags-item { grid-template-columns: auto 1fr; }
       .flags-impact { display: none; }
       .tips-grid { grid-template-columns: 1fr; }
+      .summary-bar { flex-direction: column; gap: 16px; align-items: stretch; }
+      .summary-item { flex-direction: row; justify-content: space-between; align-items: center; }
+      .summary-divider { display: none; }
+      .already-paid-header { flex-direction: column; align-items: flex-start; gap: 8px; }
+      .already-paid-total { margin-left: 0; }
+    }
+
+    @media (max-width: 480px) {
+      .hero-stats { gap: 12px; }
+      .hero-stat-num { font-size: 1.1rem; }
+      .gt-amount { font-size: 1.6rem !important; }
+      .budget-table th, .budget-table td { padding: 6px 10px; }
+      .perday-section .budget-table { min-width: 600px; }
     }
 
     /* Smooth entrance */
