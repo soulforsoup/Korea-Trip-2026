@@ -1,0 +1,2920 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Korea 2026 — May 6–20 · Seoul + Busan · 15 Days</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #0d1b2a;
+      --navy-mid: #1b2a4a;
+      --navy-light: #243b5e;
+      --cream: #f5f0e8;
+      --cream-dark: #e8e0d0;
+      --gold: #c9a84c;
+      --gold-light: #e0c060;
+      --red: #c0392b;
+      --red-light: #e74c3c;
+      --text-dark: #1a1a2e;
+      --text-body: #3d3d5c;
+      --text-muted: #6b6b8a;
+      --shadow-sm: 0 2px 8px rgba(13,27,42,0.08);
+      --shadow-md: 0 4px 20px rgba(13,27,42,0.12);
+      --shadow-lg: 0 8px 40px rgba(13,27,42,0.18);
+      --radius-sm: 6px;
+      --radius-md: 12px;
+      --radius-lg: 20px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 80px;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--cream);
+      color: var(--text-body);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    ::selection {
+      background: var(--gold);
+      color: var(--navy);
+    }
+
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-track { background: var(--cream-dark); }
+    ::-webkit-scrollbar-thumb { background: var(--navy-light); border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--navy-mid); }
+
+    /* ===== HEADER / HERO ===== */
+    .hero {
+      position: relative;
+      min-height: 70vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 80px 24px 60px;
+      overflow: hidden;
+      background: var(--navy);
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 0%, rgba(201,168,76,0.15) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 80% at 20% 100%, rgba(192,57,43,0.1) 0%, transparent 50%),
+        radial-gradient(ellipse 60% 80% at 80% 100%, rgba(192,57,43,0.1) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .hero-pattern {
+      position: absolute;
+      inset: 0;
+      opacity: 0.06;
+      background-image:
+        repeating-linear-gradient(45deg, var(--gold) 0, var(--gold) 1px, transparent 0, transparent 50%),
+        repeating-linear-gradient(-45deg, var(--gold) 0, var(--gold) 1px, transparent 0, transparent 50%);
+      background-size: 40px 40px;
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-eyebrow {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+      opacity: 0;
+      animation: fadeUp 0.6s ease 0.2s forwards;
+    }
+
+    .hero-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(3.5rem, 10vw, 7rem);
+      font-weight: 800;
+      color: var(--cream);
+      line-height: 0.95;
+      letter-spacing: -0.02em;
+      margin-bottom: 24px;
+      opacity: 0;
+      animation: fadeUp 0.7s ease 0.35s forwards;
+    }
+
+    .hero-title span {
+      display: block;
+      color: var(--gold);
+      font-style: italic;
+      font-weight: 400;
+      font-size: 0.5em;
+      letter-spacing: 0.05em;
+    }
+
+    .hero-subtitle {
+      font-family: 'Inter', sans-serif;
+      font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+      font-weight: 300;
+      color: rgba(245,240,232,0.7);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      opacity: 0;
+      animation: fadeUp 0.6s ease 0.5s forwards;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 40px;
+      margin-top: 40px;
+      opacity: 0;
+      animation: fadeUp 0.6s ease 0.65s forwards;
+    }
+
+    .hero-stat {
+      text-align: center;
+    }
+
+    .hero-stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--gold);
+    }
+
+    .hero-stat-label {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(245,240,232,0.5);
+      margin-top: 4px;
+    }
+
+    .hero-divider {
+      width: 1px;
+      background: rgba(201,168,76,0.3);
+      align-self: stretch;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ===== DAY NAVIGATION ===== */
+    .day-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--navy);
+      border-bottom: 1px solid rgba(201,168,76,0.2);
+      box-shadow: var(--shadow-md);
+    }
+
+    .day-nav-inner {
+      overflow-x: auto;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+
+    .day-nav-inner::-webkit-scrollbar { display: none; }
+
+    .day-tabs {
+      display: flex;
+      min-width: max-content;
+      padding: 0 16px;
+    }
+
+    .day-tab {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 12px 14px;
+      cursor: pointer;
+      border-bottom: 3px solid transparent;
+      transition: all 0.2s ease;
+      text-decoration: none;
+      color: rgba(245,240,232,0.5);
+      min-width: 72px;
+      flex-shrink: 0;
+    }
+
+    .day-tab:hover {
+      color: rgba(245,240,232,0.85);
+      background: rgba(201,168,76,0.05);
+    }
+
+    .day-tab.active {
+      color: var(--gold);
+      border-bottom-color: var(--gold);
+    }
+
+    .day-tab-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .day-tab-city {
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-top: 3px;
+      color: inherit;
+    }
+
+    .day-tab-dow {
+      font-size: 0.58rem;
+      color: rgba(245,240,232,0.35);
+      margin-top: 2px;
+    }
+
+    .day-tab.active .day-tab-dow { color: rgba(201,168,76,0.6); }
+
+    /* ===== MAIN CONTENT ===== */
+    .main-content {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+
+    /* ===== ACTION ITEMS ===== */
+    .action-items-section {
+      margin: 48px auto 0;
+      max-width: 860px;
+      padding: 0 16px;
+    }
+
+    .section-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+
+    .action-items-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 16px;
+    }
+
+    .action-card {
+      background: var(--navy);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      border: 1px solid rgba(201,168,76,0.15);
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .action-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .action-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+    }
+
+    .action-card.urgent::before { background: var(--red); }
+    .action-card.important::before { background: var(--gold); }
+    .action-card.normal::before { background: var(--navy-light); }
+
+    .action-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: rgba(201,168,76,0.5);
+      letter-spacing: 0.1em;
+      margin-bottom: 6px;
+    }
+
+    .action-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--cream);
+      margin-bottom: 6px;
+      line-height: 1.3;
+    }
+
+    .action-desc {
+      font-size: 0.78rem;
+      color: rgba(245,240,232,0.5);
+      line-height: 1.5;
+    }
+
+    .action-due {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      margin-top: 10px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 20px;
+    }
+
+    .action-card.urgent .action-due {
+      background: rgba(192,57,43,0.2);
+      color: #ff6b6b;
+    }
+
+    .action-card.important .action-due {
+      background: rgba(201,168,76,0.15);
+      color: var(--gold-light);
+    }
+
+    .action-card.normal .action-due {
+      background: rgba(36,59,94,0.5);
+      color: rgba(245,240,232,0.5);
+    }
+
+    /* ===== DAY CARDS ===== */
+    .days-section {
+      padding-top: 40px;
+      padding-bottom: 60px;
+    }
+
+    .day-card {
+      background: #fff;
+      border-radius: var(--radius-lg);
+      margin-bottom: 32px;
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+      border: 1px solid rgba(13,27,42,0.06);
+      transition: box-shadow 0.3s ease;
+    }
+
+    .day-card:hover {
+      box-shadow: var(--shadow-md);
+    }
+
+    .day-header {
+      padding: 28px 32px 24px;
+      position: relative;
+      overflow: hidden;
+      background: var(--navy);
+    }
+
+    .day-header-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .day-ov-bg {
+      position: absolute;
+      right: -20px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-family: 'Playfair Display', serif;
+      font-size: 12rem;
+      font-weight: 800;
+      color: rgba(255,255,255,0.03);
+      line-height: 1;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .day-header-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .day-label {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .day-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--cream);
+      line-height: 1.2;
+    }
+
+    .day-meta {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .day-meta-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: rgba(245,240,232,0.6);
+      background: rgba(255,255,255,0.06);
+      padding: 3px 10px;
+      border-radius: 20px;
+    }
+
+    .day-meta-item.city-seoul { border: 1px solid rgba(192,57,43,0.3); }
+    .day-meta-item.city-busan { border: 1px solid rgba(36,59,94,0.8); }
+    .day-meta-item.city-dmz { border: 1px solid rgba(201,168,76,0.3); }
+    .day-meta-item.city-everland { border: 1px solid rgba(36,59,94,0.8); }
+    .day-meta-item.city-busan-seoul { border: 1px solid rgba(201,168,76,0.3); }
+
+    .day-budget {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--gold);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .day-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 10px;
+    }
+
+    .day-tag {
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 2px 8px;
+      border-radius: 3px;
+      background: rgba(201,168,76,0.1);
+      color: var(--gold-light);
+      border: 1px solid rgba(201,168,76,0.2);
+    }
+
+    /* Expand/Collapse toggle */
+    .day-toggle-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 32px;
+      background: rgba(13,27,42,0.4);
+      cursor: pointer;
+      user-select: none;
+      transition: background 0.2s;
+    }
+
+    .day-toggle-bar:hover { background: rgba(13,27,42,0.6); }
+
+    .day-toggle-label {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(245,240,232,0.4);
+    }
+
+    .day-toggle-icon {
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(245,240,232,0.4);
+      transition: transform 0.3s ease;
+    }
+
+    .day-toggle-icon svg {
+      width: 14px;
+      height: 14px;
+      stroke: currentColor;
+      stroke-width: 2;
+      fill: none;
+      transition: transform 0.3s ease;
+    }
+
+    .day-card.collapsed .day-toggle-icon svg { transform: rotate(-90deg); }
+
+    /* Timeline */
+    .day-timeline {
+      padding: 8px 0 24px;
+    }
+
+    .day-card.collapsed .day-timeline { display: none; }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 90px 1fr;
+      gap: 12px;
+      padding: 10px 32px;
+      transition: background 0.15s;
+    }
+
+    .timeline-item:hover { background: rgba(201,168,76,0.03); }
+
+    .timeline-time {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      padding-top: 2px;
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .timeline-content { min-width: 0; }
+
+    .timeline-event {
+      font-weight: 600;
+      color: var(--text-dark);
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+
+    .timeline-event strong { font-weight: 700; }
+
+    .timeline-detail {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 2px;
+      line-height: 1.5;
+    }
+
+    .timeline-money {
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--gold);
+      background: rgba(201,168,76,0.08);
+      padding: 1px 7px;
+      border-radius: 10px;
+      margin-top: 3px;
+    }
+
+    .timeline-warning {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      background: rgba(192,57,43,0.06);
+      border: 1px solid rgba(192,57,43,0.15);
+      border-radius: var(--radius-sm);
+      padding: 10px 14px;
+      margin-top: 6px;
+      font-size: 0.8rem;
+      color: #8b2020;
+    }
+
+    .timeline-warning .warn-icon {
+      font-size: 0.9rem;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .timeline-info {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      background: rgba(36,59,94,0.06);
+      border: 1px solid rgba(36,59,94,0.12);
+      border-radius: var(--radius-sm);
+      padding: 10px 14px;
+      margin-top: 6px;
+      font-size: 0.8rem;
+      color: var(--navy-light);
+    }
+
+    .timeline-info .info-icon { font-size: 0.9rem; flex-shrink: 0; margin-top: 1px; }
+
+    .timeline-tip {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      background: rgba(201,168,76,0.06);
+      border: 1px solid rgba(201,168,76,0.2);
+      border-radius: var(--radius-sm);
+      padding: 10px 14px;
+      margin-top: 6px;
+      font-size: 0.8rem;
+      color: #6b5520;
+    }
+
+    .timeline-tip .tip-icon { font-size: 0.9rem; flex-shrink: 0; margin-top: 1px; }
+
+    .timeline-urgent {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      background: rgba(192,57,43,0.1);
+      border: 1px solid rgba(192,57,43,0.25);
+      border-radius: var(--radius-sm);
+      padding: 10px 14px;
+      margin-top: 6px;
+      font-size: 0.8rem;
+      color: #6b1515;
+      font-weight: 600;
+    }
+
+    .timeline-urgent .urgent-icon { font-size: 0.9rem; flex-shrink: 0; margin-top: 1px; }
+
+    /* Meals */
+    .meals-section {
+      margin: 0 32px 8px;
+      background: rgba(13,27,42,0.03);
+      border-radius: var(--radius-md);
+      padding: 14px 18px;
+      border: 1px dashed rgba(13,27,42,0.1);
+    }
+
+    .meals-label {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .meal-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 4px;
+      font-size: 0.82rem;
+    }
+
+    .meal-row:last-child { margin-bottom: 0; }
+
+    .meal-type {
+      font-weight: 600;
+      color: var(--text-dark);
+      min-width: 70px;
+    }
+
+    .meal-name { color: var(--text-body); flex: 1; }
+
+    .meal-price {
+      font-weight: 600;
+      color: var(--gold);
+      font-size: 0.78rem;
+    }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      background: var(--navy);
+      padding: 40px 24px;
+      text-align: center;
+    }
+
+    .footer-inner {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--cream);
+      margin-bottom: 8px;
+    }
+
+    .footer-logo span { color: var(--gold); font-style: italic; }
+
+    .footer-sub {
+      font-size: 0.78rem;
+      color: rgba(245,240,232,0.4);
+      margin-bottom: 24px;
+    }
+
+    .footer-stats {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+
+    .footer-stat {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .footer-stat-val {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--gold);
+    }
+
+    .footer-stat-key {
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(245,240,232,0.35);
+    }
+
+    .footer-divider {
+      width: 40px;
+      height: 1px;
+      background: rgba(201,168,76,0.2);
+      margin: 24px auto;
+    }
+
+    .footer-copy {
+      font-size: 0.72rem;
+      color: rgba(245,240,232,0.25);
+    }
+
+    /* ===== BACK TO TOP ===== */
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 44px;
+      height: 44px;
+      background: var(--navy);
+      border: 1px solid rgba(201,168,76,0.3);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      z-index: 50;
+      box-shadow: var(--shadow-md);
+    }
+
+    .back-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .back-to-top:hover {
+      background: var(--navy-mid);
+      border-color: var(--gold);
+      transform: translateY(-3px);
+    }
+
+    .back-to-top svg {
+      width: 18px;
+      height: 18px;
+      stroke: var(--gold);
+      stroke-width: 2;
+      fill: none;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 640px) {
+      .hero { min-height: 55vh; padding: 60px 20px 40px; }
+      .hero-stats { gap: 24px; }
+      .hero-stat-num { font-size: 1.5rem; }
+
+      .day-header { padding: 20px 20px 16px; }
+      .day-title { font-size: 1.2rem; }
+      .day-ov-bg { font-size: 8rem; }
+
+      .day-toggle-bar { padding: 10px 20px; }
+
+      .timeline-item { grid-template-columns: 70px 1fr; gap: 8px; padding: 8px 20px; }
+      .timeline-time { font-size: 0.72rem; }
+      .timeline-event { font-size: 0.85rem; }
+      .timeline-detail { font-size: 0.76rem; }
+
+      .meals-section { margin: 0 20px 8px; }
+
+      .action-items-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 400px) {
+      .timeline-item { grid-template-columns: 60px 1fr; }
+    }
+
+    /* Smooth entrance for day cards */
+    .day-card {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.5s ease, transform 0.5s ease, box-shadow 0.3s ease;
+    }
+
+    .day-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Korean-inspired decorative element in hero */
+    .hero-kr-accent {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--red) 0%, var(--red) 25%, var(--gold) 25%, var(--gold) 50%, var(--navy-light) 50%, var(--navy-light) 75%, var(--navy) 75%, var(--navy) 100%);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-pattern"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Travel Itinerary</p>
+      <h1 class="hero-title">Korea <span>2026</span></h1>
+      <p class="hero-subtitle">May 6 – 20 &nbsp;·&nbsp; Seoul + Busan &nbsp;·&nbsp; 15 Days</p>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-num">15</div>
+          <div class="hero-stat-label">Days</div>
+        </div>
+        <div class="hero-divider"></div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">2</div>
+          <div class="hero-stat-label">Cities</div>
+        </div>
+        <div class="hero-divider"></div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">12</div>
+          <div class="hero-stat-label">Flights</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-kr-accent"></div>
+  </header>
+
+  <!-- STICKY DAY NAV -->
+  <nav class="day-nav" id="dayNav">
+    <div class="day-nav-inner">
+      <div class="day-tabs" id="dayTabs">
+        <a href="#day-1" class="day-tab active" data-day="1">
+          <span class="day-tab-num">1</span>
+          <span class="day-tab-city">Seoul</span>
+          <span class="day-tab-dow">Wed</span>
+        </a>
+        <a href="#day-2" class="day-tab" data-day="2">
+          <span class="day-tab-num">2</span>
+          <span class="day-tab-city">Seoul</span>
+          <span class="day-tab-dow">Thu</span>
+        </a>
+        <a href="#day-3" class="day-tab" data-day="3">
+          <span class="day-tab-num">3</span>
+          <span class="day-tab-city">Seoul</span>
+          <span class="day-tab-dow">Fri</span>
+        </a>
+        <a href="#day-4" class="day-tab" data-day="4">
+          <span class="day-tab-num">4</span>
+          <span class="day-tab-city">Seoul</span>
+          <span class="day-tab-dow">Sat</span>
+        </a>
+        <a href="#day-5" class="day-tab" data-day="5">
+          <span class="day-tab-num">5</span>
+          <span class="day-tab-city">Seoul</span>
+          <span class="day-tab-dow">Sun</span>
+        </a>
+        <a href="#day-6" class="day-tab" data-day="6">
+          <span class="day-tab-num">6</span>
+          <span class="day-tab-city">DMZ</span>
+          <span class="day-tab-dow">Mon</span>
+        </a>
+        <a href="#day-7" class="day-tab" data-day="7">
+          <span class="day-tab-num">7</span>
+          <span class="day-tab-city">Seoul</span>
+          <span class="day-tab-dow">Tue</span>
+        </a>
+        <a href="#day-8" class="day-tab" data-day="8">
+          <span class="day-tab-num">8</span>
+          <span class="day-tab-city">Seoul</span>
+          <span class="day-tab-dow">Wed</span>
+        </a>
+        <a href="#day-9" class="day-tab" data-day="9">
+          <span class="day-tab-num">9</span>
+          <span class="day-tab-city">Seoul</span>
+          <span class="day-tab-dow">Thu</span>
+        </a>
+        <a href="#day-10" class="day-tab" data-day="10">
+          <span class="day-tab-num">10</span>
+          <span class="day-tab-city">Seoul→Busan</span>
+          <span class="day-tab-dow">Fri</span>
+        </a>
+        <a href="#day-11" class="day-tab" data-day="11">
+          <span class="day-tab-num">11</span>
+          <span class="day-tab-city">Busan</span>
+          <span class="day-tab-dow">Sat</span>
+        </a>
+        <a href="#day-12" class="day-tab" data-day="12">
+          <span class="day-tab-num">12</span>
+          <span class="day-tab-city">Busan</span>
+          <span class="day-tab-dow">Sun</span>
+        </a>
+        <a href="#day-13" class="day-tab" data-day="13">
+          <span class="day-tab-num">13</span>
+          <span class="day-tab-city">Gyeongju</span>
+          <span class="day-tab-dow">Mon</span>
+        </a>
+        <a href="#day-14" class="day-tab" data-day="14">
+          <span class="day-tab-num">14</span>
+          <span class="day-tab-city">Busan</span>
+          <span class="day-tab-dow">Tue</span>
+        </a>
+        <a href="#day-15" class="day-tab" data-day="15">
+          <span class="day-tab-num">15</span>
+          <span class="day-tab-city">Depart</span>
+          <span class="day-tab-dow">Wed</span>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PRE-TRIP ACTION ITEMS -->
+  <div class="action-items-section">
+    <p class="section-label">Pre-Trip Action Items</p>
+    <div class="action-items-grid">
+      <div class="action-card urgent">
+        <div class="action-num">Action 1 of 4</div>
+        <div class="action-title">Book KTX Seoul→Busan First Class (12:00 noon)</div>
+        <div class="action-desc">Friday afternoon trains fill fast. Set a calendar reminder in the KORAIL app now.</div>
+        <div class="action-due">⚠️ Due: April 15, 2026 — only 13 days away!</div>
+      </div>
+      <div class="action-card urgent">
+        <div class="action-num">Action 2 of 4</div>
+        <div class="action-title">Book Changdeok Secret Garden English tour (14:30 slot)</div>
+        <div class="action-desc">Exactly 50 online tickets drop the moment it opens at 10AM KST. Must book 6 days in advance.</div>
+        <div class="action-due">⚠️ Due: May 1, 2026 at 10AM KST</div>
+      </div>
+      <div class="action-card important">
+        <div class="action-num">Action 3 of 4</div>
+        <div class="action-title">Book Haeundae Blueline Sky Capsule (Cheongsapo→Mipo)</div>
+        <div class="action-desc">Book online ~2 weeks before. The Sky Capsule runs between Cheongsapo and Mipo only.</div>
+        <div class="action-due">📅 ~May 2, 2026</div>
+      </div>
+      <div class="action-card important">
+        <div class="action-num">Action 4 of 4</div>
+        <div class="action-title">Install &amp; setup Kakao T</div>
+        <div class="action-desc">Needed for Day 13 (Gyeongju) and Day 15 (Gimhae taxi). Link a foreign Visa/Mastercard to the app before arriving.</div>
+        <div class="action-due">📅 Before departure</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY SECTIONS -->
+  <main class="main-content">
+    <div class="days-section">
+
+      <!-- DAY 1 -->
+      <section class="day-card visible" id="day-1">
+        <div class="day-header">
+          <div class="day-ov-bg">1</div>
+          <div class="day-header-inner">
+            <div class="day-header-top">
+              <div>
+                <div class="day-label">Day 1 · May 6, 2026</div>
+                <h2 class="day-title">Arrival in Seoul</h2>
+              </div>
+              <div style="text-align:right">
+                <div class="day-budget">💰 Budget: ~₩30,000</div>
+              </div>
+            </div>
+            <div class="day-meta">
+              <span class="day-meta-item city-seoul">📍 Seoul</span>
+              <span class="day-meta-item">✈️ SQ606</span>
+              <span class="day-meta-item">🌅 Night Arrival</span>
+            </div>
+            <div class="day-tags">
+              <span class="day-tag">Travel</span>
+              <span class="day-tag">Food</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="day-toggle-bar" onclick="toggleDay('day-1')">
+          <span class="day-toggle-label">Timeline</span>
+          <div class="day-toggle-icon">
+            <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </div>
+        </div>
+
+        <div class="day-timeline">
+          <div class="timeline-item">
+            <div class="timeline-time">14:55</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Depart Singapore — <strong>SQ606</strong></div>
+              <div class="timeline-detail">Changi Airport Terminal 3. Flight time ~6.5hrs.</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">22:20</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Arrive Incheon Airport</div>
+              <div class="timeline-detail">Immigration + baggage (~30–50min). Singapore passport holders get visa-free entry.</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">23:10</div>
+            <div class="timeline-content">
+              <div class="timeline-event">AREX All-Stop to Hongik Univ Station</div>
+              <div class="timeline-detail">If you're fast through immigration + baggage, you can make the 23:10. But don't count on it. ~53min ride, ₩4,750/person. Use T-money (Climate Card doesn't cover airport boarding).</div>
+              <div class="timeline-money">💰 ₩4,750/pp</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">23:38</div>
+            <div class="timeline-content">
+              <div class="timeline-event">AREX Last Train — <strong>This is your real train.</strong></div>
+              <div class="timeline-detail">Don't stress about 23:10. If your bags take time, just relax. You'll still get to Hongdae before midnight. ~53min ride, ₩4,750/person.</div>
+              <div class="timeline-money">💰 ₩4,750/pp</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">If missed</div>
+            <div class="timeline-content">
+              <div class="timeline-warning">
+                <span class="warn-icon">⚠️</span>
+                <span>Airport Limousine Bus N6002 to Hongdae runs until 4:50am (₩18,000/pp, ~60min) or taxi ~₩70,000–80,000 (~50min).</span>
+              </div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">00:15</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Check into Hotel</div>
+              <div class="timeline-detail">52-9 World Cup buk-ro 6-gil, Mapo-gu. 7min walk from Hongik Univ Station Exit 4. Late check-in available.</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">Late Night</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Kyochon Chicken Hongdae or Convenience Store</div>
+              <div class="timeline-detail">Korean fried chicken or CU/GS25 convenience store snacks.</div>
+            </div>
+          </div>
+
+          <div class="meals-section">
+            <div class="meals-label">🍽️ Meals</div>
+            <div class="meal-row">
+              <span class="meal-type">Late Night</span>
+              <span class="meal-name">Kyochon Chicken Hongdae or Convenience Store snacks</span>
+              <span class="meal-price">~₩10,000–15,000</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- DAY 2 -->
+      <section class="day-card visible" id="day-2">
+        <div class="day-header">
+          <div class="day-ov-bg">2</div>
+          <div class="day-header-inner">
+            <div class="day-header-top">
+              <div>
+                <div class="day-label">Day 2 · May 7, 2026</div>
+                <h2 class="day-title">Palace District &amp; Bukchon</h2>
+              </div>
+              <div style="text-align:right">
+                <div class="day-budget">💰 Budget: ~₩80,000</div>
+              </div>
+            </div>
+            <div class="day-meta">
+              <span class="day-meta-item city-seoul">📍 Seoul</span>
+              <span class="day-meta-item">🏛️ UNESCO</span>
+              <span class="day-meta-item">☕ Cafe</span>
+            </div>
+            <div class="day-tags">
+              <span class="day-tag">Historical</span>
+              <span class="day-tag">Cafe</span>
+              <span class="day-tag">Food</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="day-toggle-bar" onclick="toggleDay('day-2')">
+          <span class="day-toggle-label">Timeline</span>
+          <div class="day-toggle-icon">
+            <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </div>
+        </div>
+
+        <div class="day-timeline">
+          <div class="timeline-item">
+            <div class="timeline-time">08:30</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Eggdrop Hongik — Breakfast</div>
+              <div class="timeline-detail">Famous Korean egg toast sandwich, 2min walk from hotel (15 Hongik-ro). Opens 8:30am — grab takeaway and eat on the go. Card only, order via kiosk.</div>
+              <div class="timeline-money">💰 ~₩5,000–7,000/pp</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">08:55</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Subway to Gyeongbokgung</div>
+              <div class="timeline-detail">Climate Card ✓ — Line 2 from Hongik Univ → transfer at Chungjeongno (Line 5) → Gwanghwamun, or direct on Line 3 via Gyeongbokgung Stn. ~20min ride.</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">09:15</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Gyeongbokgung Palace</div>
+              <div class="timeline-detail">Main royal palace of the Joseon dynasty. Opens 9AM, closed Tuesdays. Buy Royal Palace Pass (₩10,000) — covers all 4 palaces + Jongmyo. Guard Changing Ceremony at 10:00 — don't miss!</div>
+              <div class="timeline-money">💰 ₩10,000 (Royal Palace Pass)</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">11:00</div>
+            <div class="timeline-content">
+              <div class="timeline-event">National Palace Museum of Korea</div>
+              <div class="timeline-detail">Separate building inside Gyeongbokgung grounds near the main south gate. Free admission, 10AM–6PM. Allow 45min.</div>
+              <div class="timeline-money">💰 Free</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">11:45</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Walk out West Gate of Gyeongbokgung</div>
+              <div class="timeline-detail">5min to Tosokchon.</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">12:00</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Tosokchon Samgyetang — Lunch</div>
+              <div class="timeline-detail">Famous ginseng chicken soup, opens 10AM. Arrive ~12:00 to beat the worst of the 12PM rush. Allow 45min.</div>
+              <div class="timeline-money">💰 ~₩17,000–20,000/pp</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">13:30</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Walk to Changdeokgung</div>
+              <div class="timeline-detail">~20min walk east, or 1 subway stop. Head to Changdeokgung entrance for the 14:30 Secret Garden English tour.</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">14:30</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Changdeokgung Palace + Secret Garden Tour</div>
+              <div class="timeline-detail">UNESCO World Heritage. English guided tour at 14:30 — MUST book online 6 days in advance at 10AM KST. 50 tickets online / 50 on-site. Tour lasts ~90min.</div>
+              <div class="timeline-money">💰 ₩5,000/pp (Secret Garden)</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">16:05</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Bukchon Hanok Village</div>
+              <div class="timeline-detail">10min walk northwest from Changdeokgung exit. Traditional hanok streets — tourist access 10AM–5PM only.</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">17:00</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Cafe Onion Anguk</div>
+              <div class="timeline-detail">5min walk south from Bukchon. Stunning hanok cafe near Anguk Station, open weekdays 7AM–10PM.</div>
+              <div class="timeline-money">💰 ~₩8,000–12,000/pp</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">18:00</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Subway back to Hongdae</div>
+              <div class="timeline-detail">Climate Card ✓ — Line 3 from Anguk → transfer at Chungmuro → Line 2 to Hongik Univ. ~25min.</div>
+            </div>
+          </div>
+
+          <div class="meals-section">
+            <div class="meals-label">🍽️ Meals</div>
+            <div class="meal-row">
+              <span class="meal-type">Breakfast</span>
+              <span class="meal-name">Eggdrop Hongik</span>
+              <span class="meal-price">~₩5,000–7,000/pp</span>
+            </div>
+            <div class="meal-row">
+              <span class="meal-type">Lunch</span>
+              <span class="meal-name">Tosokchon Samgyetang</span>
+              <span class="meal-price">~₩17,000–20,000/pp</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- DAY 3 -->
+      <section class="day-card visible" id="day-3">
+        <div class="day-header">
+          <div class="day-ov-bg">3</div>
+          <div class="day-header-inner">
+            <div class="day-header-top">
+              <div>
+                <div class="day-label">Day 3 · May 8, 2026</div>
+                <h2 class="day-title">Myeongdong, Namsan &amp; Markets</h2>
+              </div>
+              <div style="text-align:right">
+                <div class="day-budget">💰 Budget: ~₩110,000</div>
+              </div>
+            </div>
+            <div class="day-meta">
+              <span class="day-meta-item city-seoul">📍 Seoul</span>
+              <span class="day-meta-item">🗼 Tower</span>
+              <span class="day-meta-item">🛍️ Shopping</span>
+            </div>
+            <div class="day-tags">
+              <span class="day-tag">Shopping</span>
+              <span class="day-tag">Nature</span>
+              <span class="day-tag">Food</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="day-toggle-bar" onclick="toggleDay('day-3')">
+          <span class="day-toggle-label">Timeline</span>
+          <div class="day-toggle-icon">
+            <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </div>
+        </div>
+
+        <div class="day-timeline">
+          <div class="timeline-item">
+            <div class="timeline-time">10:00</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Subway to Myeongdong</div>
+              <div class="timeline-detail">Climate Card ✓ — Line 2 from Hongik Univ → Euljiro 1-ga. ~20min.</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">10:20</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Myeongdong Shopping District</div>
+              <div class="timeline-detail">K-beauty at Olive Young, skincare stores, Myeongdong Cathedral. Browse for ~1.5hrs. Shops open 10AM ✅.</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">10:30</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Nike Seoul</div>
+              <div class="timeline-detail">Inside Myeongdong, 4min walk from Euljiro 1-ga Exit 6. Opens 10:30AM ✅. Browse 30–60min.</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">12:00</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Walk to Namdaemun Market (~10min)</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">12:00–13:30</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Namdaemun Market</div>
+              <div class="timeline-detail">Korea's oldest & largest traditional market. Open Mon–Sat (CLOSED Sundays — today is Friday ✅). Browse + street food lunch. Allow 1.5hrs.</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">13:40</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Walk to Namsan Cable Car station (~15min)</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">14:00</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Namsan Cable Car + N Seoul Tower</div>
+              <div class="timeline-detail">Cable car opens 10AM daily ✅. ₩15,000 round-trip + ₩16,000 Tower Observatory. Allow 2hrs.</div>
+              <div class="timeline-money">💰 ₩15,000 + ₩16,000 (observatory)</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">16:00</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Cable car down</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">16:15</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Subway to Gwangjang Market (~20min)</div>
+              <div class="timeline-detail">Climate Card ✓ — Line 4 to Dongdaemun, or Line 2 to Euljiro 4-ga.</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">16:30</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Gwangjang Market — Food Alley</div>
+              <div class="timeline-detail">Food alley open ~9AM–10:30PM daily ✅. Friday = fully open. Famous for bindaetteok, mayak gimbap, tteokbokki. Browse and snack for 1hr.</div>
+              <div class="timeline-tip">
+                <span class="tip-icon">💡</span>
+                <span>The upper-floor fabric, vintage, and retail stalls start closing around 4:30PM — but the ground-floor Food Alley is just getting started. Arriving at 4:30PM is perfect timing.</span>
+              </div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">17:00</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Gohyang Kalguksu — Dinner</div>
+              <div class="timeline-detail">Inside Gwangjang Market. Netflix-famous handmade knife-cut noodles. Closed Mondays & 4th Sundays ✅. Expect 15–30min queue but fast turnover. Allow 30min.</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">18:00</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Subway back to Hongdae (~20min)</div>
+              <div class="timeline-detail">Climate Card ✓ — Jongno 5-ga Stn → Line 1 to Jongno 3-ga → transfer Line 3 → Hongik Univ.</div>
+            </div>
+          </div>
+
+          <div class="meals-section">
+            <div class="meals-label">🍽️ Meals</div>
+            <div class="meal-row">
+              <span class="meal-type">Lunch</span>
+              <span class="meal-name">Namdaemun Market Street Food</span>
+              <span class="meal-price">~₩10,000–15,000/pp</span>
+            </div>
+            <div class="meal-row">
+              <span class="meal-type">Dinner</span>
+              <span class="meal-name">Gohyang Kalguksu</span>
+              <span class="meal-price">~₩7,000–9,000/pp</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- DAY 4 -->
+      <section class="day-card visible" id="day-4">
+        <div class="day-header">
+          <div class="day-ov-bg">4</div>
+          <div class="day-header-inner">
+            <div class="day-header-top">
+              <div>
+                <div class="day-label">Day 4 · May 9, 2026</div>
+                <h2 class="day-title">Hannam → Seongsu → Gangnam</h2>
+              </div>
+              <div style="text-align:right">
+                <div class="day-budget">💰 Budget: ~₩90,000</div>
+              </div>
+            </div>
+            <div class="day-meta">
+              <span class="day-meta-item city-seoul">📍 Seoul</span>
+              <span class="day-meta-item">☕ Cafe</span>
+              <span class="day-meta-item">🛍️ Trendy</span>
+            </div>
+            <div class="day-tags">
+              <span class="day-tag">Cafe</span>
+              <span class="day-tag">Shopping</span>
+              <span class="day-tag">Food</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="day-toggle-bar" onclick="toggleDay('day-4')">
+          <span class="day-toggle-label">Timeline</span>
+          <div class="day-toggle-icon">
+            <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </div>
+        </div>
+
+        <div class="day-timeline">
+          <div class="timeline-item">
+            <div class="timeline-time">08:30</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Bagel Land Hongdae</div>
+              <div class="timeline-detail">Grab breakfast near your hotel. Opens 8:30am — best to arrive at baking time for freshest selection. Allow 30–45min.</div>
+              <div class="timeline-money">💰 ~₩4,000–8,000/pp</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">09:45</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Subway to Hannam (Hangangjin Station)</div>
+              <div class="timeline-detail">Line 6 direct from Hongdae area (~20min, 0 transfers).</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">10:30</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Hannam-dong Morning Stroll</div>
+              <div class="timeline-detail">Arrive a bit early, grab a quick coffee at the Maxim Plant cafe or browse the trendy streets.</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">11:00</div>
+            <div class="timeline-content">
+              <div class="timeline-event">TAMBURINS Flagship Store Hannam</div>
+              <div class="timeline-detail">Opens right at 11 AM. Browse the perfumes and stunning art installations. 238 Itaewon-ro, between Itaewon and Hangangjin stations. Allow 45min.</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">12:00</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Subway to Seongsu</div>
+              <div class="timeline-detail">Line 6 from Hangangjin → transfer at Sindang → Line 2 to Seongsu (~25min).</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">12:30</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Lunch in Seongsu-dong</div>
+              <div class="timeline-detail">Trendy spot in the "Brooklyn of Seoul." Allow 1hr.</div>
+              <div class="timeline-money">💰 ~₩15,000–20,000/pp</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">13:30</div>
+            <div class="timeline-content">
+              <div class="timeline-event">SM Entertainment (KWANGYA) &amp; Cafe Hopping</div>
+              <div class="timeline-detail">Explore the SM store (B1) and the pop-ups/boutiques around Seongsu. Opens 10:30AM daily.</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">15:30</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Subway to Gangnam</div>
+              <div class="timeline-detail">Line 2 direct from Seongsu to Gangnam Station (~18min, 0 transfers). You cross the Han River directly here!</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">16:00</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Gangnam / COEX</div>
+              <div class="timeline-detail">Explore the Gangnam Underground Shopping Mall or Starfield COEX Library.</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">18:30</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Dinner in Gangnam</div>
+              <div class="timeline-detail">Enjoy dinner in the area.</div>
+              <div class="timeline-money">💰 ~₩15,000–25,000/pp</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">20:00</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Subway back to Hongdae</div>
+              <div class="timeline-detail">Line 2 direct from Gangnam to Hongik Univ Station (~40min, 0 transfers).</div>
+            </div>
+          </div>
+
+          <div class="meals-section">
+            <div class="meals-label">🍽️ Meals</div>
+            <div class="meal-row">
+              <span class="meal-type">Breakfast</span>
+              <span class="meal-name">Bagel Land Hongdae</span>
+              <span class="meal-price">~₩4,000–8,000/pp</span>
+            </div>
+            <div class="meal-row">
+              <span class="meal-type">Lunch</span>
+              <span class="meal-name">Seongsu-dong Area</span>
+              <span class="meal-price">~₩15,000–20,000/pp</span>
+            </div>
+            <div class="meal-row">
+              <span class="meal-type">Dinner</span>
+              <span class="meal-name">Gangnam Area</span>
+              <span class="meal-price">~₩15,000–25,000/pp</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- DAY 5 -->
+      <section class="day-card visible" id="day-5">
+        <div class="day-header">
+          <div class="day-ov-bg">5</div>
+          <div class="day-header-inner">
+            <div class="day-header-top">
+              <div>
+                <div class="day-label">Day 5 · May 10, 2026</div>
+                <h2 class="day-title">Lotte World, Seoul Sky &amp; Han River</h2>
+              </div>
+              <div style="text-align:right">
+                <div class="day-budget">💰 Budget: ~₩130,000</div>
+              </div>
+            </div>
+            <div class="day-meta">
+              <span class="day-meta-item city-seoul">📍 Seoul</span>
+              <span class="day-meta-item">🎢 Theme Park</span>
+              <span class="day-meta-item">🌅 Sunset</span>
+            </div>
+            <div class="day-tags">
+              <span class="day-tag">Shopping</span>
+              <span class="day-tag">Nature</span>
+              <span class="day-tag">Food</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="day-toggle-bar" onclick="toggleDay('day-5')">
+          <span class="day-toggle-label">Timeline</span>
+          <div class="day-toggle-icon">
+            <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </div>
+        </div>
+
+        <div class="day-timeline">
+          <div class="timeline-item">
+            <div class="timeline-time">09:45</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Subway to Jamsil</div>
+              <div class="timeline-detail">Climate Card ✓ — Line 2 from Hongik Univ → Jamsil. ~35min direct, no transfer.</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">10:20</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Lotte World Mall &amp; Aquarium</div>
+              <div class="timeline-detail">Mall & Aquarium both open 10:00 AM on Sundays ✅. Start with the aquarium (₩35,000/pp, allow 2hrs), then browse the massive mall. Directly connected to Jamsil Station.</div>
+              <div class="timeline-money">💰 ₩35,000/pp (aquarium)</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">12:30</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Lunch at Lotte World Mall</div>
+              <div class="timeline-detail">Food hall in the mall basement — diverse options from Korean to international. Allow 1hr.</div>
+              <div class="timeline-money">💰 ~₩12,000–18,000/pp</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">13:30</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Free time</div>
+              <div class="timeline-detail">Explore more of Lotte World Mall, or rest.</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">16:30</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Seoul Sky Observatory</div>
+              <div class="timeline-detail">123rd floor of Lotte World Tower. Opens 10:30, closes 10PM (Sun) ✅. ₩31,000/pp. Book online to skip 30min+ on-site queue. Arrive late afternoon — clear daytime views AND stay for sunset from the observatory. Allow 1.5–2hrs.</div>
+              <div class="timeline-money">💰 ₩31,000/pp</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">18:30</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Subway to Yeouido</div>
+              <div class="timeline-detail">Climate Card ✓ — Line 2 from Jamsil → Yeouido (Line 5 via transfer at Yeongdeungpo-gu Office). ~35min. Arrives around sunset (~7:15–7:30PM).</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">19:00</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Han River Sunset at Yeouido</div>
+              <div class="timeline-detail">Yeouido Hangang Park — open 24hrs, free. Picnic setup: Mats can be rented from shops near Yeouido Exit 1 or 2 (Full Picnic Sets available — mat, table, lights, speaker). Or buy a cheap one at Daiso. Chicken: Use Baedal Minjok (Kakao delivery app) to order to your picnic spot. Sunset in May is ~7:15–7:30PM. Allow 2hrs.</div>
+              <div class="timeline-money">💰 ~₩15,000–20,000/pp (chicken + beer)</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">21:00</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Subway back to Hongdae</div>
+              <div class="timeline-detail">Climate Card ✓ — Line 5 from Yeouinaru → transfer at Gongdeok → Line 6 → Hapjeong (walk to hotel). ~20min.</div>
+            </div>
+          </div>
+
+          <div class="meals-section">
+            <div class="meals-label">🍽️ Meals</div>
+            <div class="meal-row">
+              <span class="meal-type">Lunch</span>
+              <span class="meal-name">Lotte World Mall Food Hall</span>
+              <span class="meal-price">~₩12,000–18,000/pp</span>
+            </div>
+            <div class="meal-row">
+              <span class="meal-type">Dinner</span>
+              <span class="meal-name">Han River Chicken & Beer</span>
+              <span class="meal-price">~₩15,000–20,000/pp</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- DAY 6 -->
+      <section class="day-card visible" id="day-6">
+        <div class="day-header">
+          <div class="day-ov-bg">6</div>
+          <div class="day-header-inner">
+            <div class="day-header-top">
+              <div>
+                <div class="day-label">Day 6 · May 11, 2026</div>
+                <h2 class="day-title">DMZ Tour — The Demilitarized Zone</h2>
+              </div>
+              <div style="text-align:right">
+                <div class="day-budget">💰 Budget: ~₩80,000</div>
+              </div>
+            </div>
+            <div class="day-meta">
+              <span class="day-meta-item city-dmz">📍 DMZ</span>
+              <span class="day-meta-item">🏛️ History</span>
+              <span class="day-meta-item">⚠️ Monday</span>
+            </div>
+            <div class="day-tags">
+              <span class="day-tag">History</span>
+              <span class="day-tag">Scenic</span>
+              <span class="day-tag">Culture</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="day-toggle-bar" onclick="toggleDay('day-6')">
+          <span class="day-toggle-label">Timeline</span>
+          <div class="day-toggle-icon">
+            <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </div>
+        </div>
+
+        <div class="day-timeline">
+          <div class="timeline-item">
+            <div class="timeline-time">07:00</div>
+            <div class="timeline-content">
+              <div class="timeline-event">DMZ Tour Pickup</div>
+              <div class="timeline-detail">Walk to Hongik Univ Station Exit 3. Seoul N Tour 365-Day special. Exact pickup time notified via email/WhatsApp day before.</div>
+              <div class="timeline-money">💰 ~$53–59/pp</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">07:30</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Imjingak Peace Nuri Park</div>
+              <div class="timeline-detail">First stop — peace park near the DMZ border area.</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">09:00</div>
+            <div class="timeline-content">
+              <div class="timeline-event">DMZ Peace Gondola</div>
+              <div class="timeline-detail">Scenic gondola ride with views of the DMZ area.</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">10:30</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Observatory</div>
+              <div class="timeline-detail">Jangsan or Odusan Observatory — views into North Korea.</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">11:30</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Gloster Hill Memorial</div>
+              <div class="timeline-detail">Memorial for the Battle of the Imjin River (Korean War).</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">12:30</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Heroes Suspension Bridge + Lunch</div>
+              <div class="timeline-detail">Suspension bridge and included tour lunch.</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">15:30</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Drop off at City Hall</div>
+              <div class="timeline-detail">Tour returns to central Seoul.</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">16:00</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Gwanghwamun Square</div>
+              <div class="timeline-detail">Iconic plaza with statues of King Sejong & Admiral Yi Sun-sin.</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">17:00</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Samcheong-dong</div>
+              <div class="timeline-detail">Charming neighborhood with beautiful stone wall road, art galleries, and cute cafes. Perfect wind-down after the DMZ.</div>
+            </div>
+          </div>
+
+          <div class="timeline-warning" style="margin: 12px 32px 0;">
+            <span class="warn-icon">⚠️</span>
+            <span><strong>Monday DMZ Note —</strong> The 3rd Infiltration Tunnel and Dora Observatory are CLOSED on Mondays. This tour visits alternative Monday-open sites: Imjingak, Peace Gondola, Observatory, and Suspension Bridge. JSA/Panmunjom tours are currently suspended to the public (since 2023).</span>
+          </div>
+
+          <div class="meals-section">
+            <div class="meals-label">🍽️ Meals</div>
+            <div class="meal-row">
+              <span class="meal-type">Lunch</span>
+              <span class="meal-name">Included with DMZ Tour</span>
+              <span class="meal-price">—</span>
+            </div>
+            <div class="meal-row">
+              <span class="meal-type">Dinner</span>
+              <span class="meal-name">Hwangsaengga Kalguksu (Samcheong-dong)</span>
+              <span class="meal-price">~₩10,000–15,000/pp</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- DAY 7 -->
+      <section class="day-card visible" id="day-7">
+        <div class="day-header">
+          <div class="day-ov-bg">7</div>
+          <div class="day-header-inner">
+            <div class="day-header-top">
+              <div>
+                <div class="day-label">Day 7 · May 12, 2026</div>
+                <h2 class="day-title">Everland — Korea's Largest Theme Park</h2>
+              </div>
+              <div style="text-align:right">
+                <div class="day-budget">💰 Budget: ~₩50,000</div>
+              </div>
+            </div>
+            <div class="day-meta">
+              <span class="day-meta-item city-everland">📍 Everland</span>
+              <span class="day-meta-item">🎢 Rides</span>
+              <span class="day-meta-item">🌷 Flowers</span>
+            </div>
+            <div class="day-tags">
+              <span class="day-tag">Rides</span>
+              <span class="day-tag">Nature</span>
+              <span class="day-tag">Food</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="day-toggle-bar" onclick="toggleDay('day-7')">
+          <span class="day-toggle-label">Timeline</span>
+          <div class="day-toggle-icon">
+            <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </div>
+        </div>
+
+        <div class="day-timeline">
+          <div class="timeline-item">
+            <div class="timeline-time">08:30</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Leave Hotel</div>
+              <div class="timeline-detail">Walk to AREX Hongdae Station Exit 4 for shuttle.</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">09:05</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Everland Shuttle Bus</div>
+              <div class="timeline-detail">₩12,000/person shuttle departs from AREX Hongdae Station Exit 4. Arrives ~10:15. Pay with T-money or cash.</div>
+              <div class="timeline-money">💰 ₩12,000/pp</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">10:00</div>
+            <div class="timeline-content">
+              <div class="timeline-warning">
+                <span class="warn-icon">⚠️</span>
+                <span><strong>SMART QUEUE — DO THIS FIRST —</strong> As soon as you enter the park at 10:00 AM, open the Everland app and hit Smart Queue for Safari World immediately. Slots for the morning session will be FULL by 10:05 AM.</span>
+              </div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">10:20</div>
+            <div class="timeline-content">
+              <div class="timeline-event">T-Express Roller Coaster</div>
+              <div class="timeline-detail">Rush to T-Express second — shortest lines at opening! Korea's steepest wooden coaster.</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">11:00</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Safari World / Lost Valley</div>
+              <div class="timeline-detail">Your Smart Queue slot. Drive-through safari with animals.</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">12:00</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Panda World</div>
+              <div class="timeline-detail">Indoor panda viewing — closes early (~12:30), don't miss!</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">13:30</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Thunder Falls + Racing Coaster</div>
+              <div class="timeline-detail">Log flume ride and family coaster.</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">15:00</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Spring Flower Festival 🌷</div>
+              <div class="timeline-detail">Beautiful tulip gardens in the European Adventure zone (May is peak flower season!)</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">17:00</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Remaining Rides + Shopping</div>
+              <div class="timeline-detail">Souvenirs and any remaining attractions.</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">19:30</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Night Parade 🌟</div>
+              <div class="timeline-detail">Spectacular evening light parade — must see!</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">21:30</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Return Shuttle</div>
+              <div class="timeline-detail">Shuttle departs Everland → arrive Hongdae ~22:45.</div>
+            </div>
+          </div>
+
+          <div class="meals-section">
+            <div class="meals-label">🍽️ Meals</div>
+            <div class="meal-row">
+              <span class="meal-type">Lunch</span>
+              <span class="meal-name">Everland Park Food</span>
+              <span class="meal-price">~₩12,000–18,000/pp</span>
+            </div>
+            <div class="meal-row">
+              <span class="meal-type">Dinner</span>
+              <span class="meal-name">Everland Park Food</span>
+              <span class="meal-price">~₩12,000–18,000/pp</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- DAY 8 -->
+      <section class="day-card visible" id="day-8">
+        <div class="day-header">
+          <div class="day-ov-bg">8</div>
+          <div class="day-header-inner">
+            <div class="day-header-top">
+              <div>
+                <div class="day-label">Day 8 · May 13, 2026</div>
+                <h2 class="day-title">Gyeongdong &amp; Majang Markets</h2>
+              </div>
+              <div style="text-align:right">
+                <div class="day-budget">💰 Budget: ~₩80,000</div>
+              </div>
+            </div>
+            <div class="day-meta">
+              <span class="day-meta-item city-seoul">📍 Seoul</span>
+              <span class="day-meta-item">🥩 Meat</span>
+              <span class="day-meta-item">☕ Cafe</span>
+            </div>
+            <div class="day-tags">
+              <span class="day-tag">Food</span>
+              <span class="day-tag">Shopping</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="day-toggle-bar" onclick="toggleDay('day-8')">
+          <span class="day-toggle-label">Timeline</span>
+          <div class="day-toggle-icon">
+            <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </div>
+        </div>
+
+        <div class="day-timeline">
+          <div class="timeline-item">
+            <div class="timeline-time">09:30</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Subway to Gyeongdong Market</div>
+              <div class="timeline-detail">Climate Card ✓ — Line 2 from Hongik Univ → Line 1 at Sindorim or City Hall → Jegi-dong Stn Exit 2. ~30min.</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">10:00</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Gyeongdong Market</div>
+              <div class="timeline-detail">Traditional Korean medicine and herbal market — one of Seoul's most authentic. Opens ~9AM daily. Browse dried herbs, ginseng, and traditional ingredients. Allow 1.5hrs.</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">11:30</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Walk to Majang Meat Market</div>
+              <div class="timeline-detail">~15min walk south, or 1 subway stop (Jegi-dong → Yongdu, Line 2).</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">12:00</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Majang Meat Market — Lunch (REQUIRED)</div>
+              <div class="timeline-detail">Korea's largest wholesale meat market. Open daily from early AM. Buy premium hanwoo beef cuts at wholesale prices from a butcher downstairs, then take them to a 2F restaurant for grilling (₩5,000–6,000 grilling fee/pp). Incredible value!</div>
+              <div class="timeline-tip">
+                <span class="tip-icon">💡</span>
+                <span>Best cuts go before 11AM. 12PM is acceptable but some vendors may sell out.</span>
+              </div>
+              <div class="timeline-money">💰 ~₩30,000–50,000 for two (meat + grill fee)</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">13:30</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Subway back toward Hongdae</div>
+              <div class="timeline-detail">Climate Card ✓ — Line 2 from Yongdu → Hongik Univ. ~25min direct.</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">14:00</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Hooligan Coffee</div>
+              <div class="timeline-detail">Brunch cafe in Hongdae (11-5 Wausan-ro 29ba-gil). Opens 11AM — afternoon coffee/dessert stop. Great avocado plates and coffee. Allow 1hr.</div>
+              <div class="timeline-money">💰 ~₩12,000–18,000/pp</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">15:00</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Free Afternoon</div>
+              <div class="timeline-detail">Rest at the hotel, revisit favourite spots, or explore Hongdae streets.</div>
+            </div>
+          </div>
+
+          <div class="meals-section">
+            <div class="meals-label">🍽️ Meals</div>
+            <div class="meal-row">
+              <span class="meal-type">Lunch</span>
+              <span class="meal-name">Majang Meat Market (beef + grilling)</span>
+              <span class="meal-price">~₩30,000–50,000 for two</span>
+            </div>
+            <div class="meal-row">
+              <span class="meal-type">Afternoon</span>
+              <span class="meal-name">Hooligan Coffee</span>
+              <span class="meal-price">~₩12,000–18,000/pp</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- DAY 9 -->
+      <section class="day-card visible" id="day-9">
+        <div class="day-header">
+          <div class="day-ov-bg">9</div>
+          <div class="day-header-inner">
+            <div class="day-header-top">
+              <div>
+                <div class="day-label">Day 9 · May 14, 2026</div>
+                <h2 class="day-title">Last Day in Seoul — Farewell Hongdae</h2>
+              </div>
+              <div style="text-align:right">
+                <div class="day-budget">💰 Budget: ~₩60,000</div>
+              </div>
+            </div>
+            <div class="day-meta">
+              <span class="day-meta-item city-seoul">📍 Seoul</span>
+              <span class="day-meta-item">😌 Chill</span>
+              <span class="day-meta-item">🧳 Last Night</span>
+            </div>
+            <div class="day-tags">
+              <span class="day-tag">Food</span>
+              <span class="day-tag">Shopping</span>
+              <span class="day-tag">Chill</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="day-toggle-bar" onclick="toggleDay('day-9')">
+          <span class="day-toggle-label">Timeline</span>
+          <div class="day-toggle-icon">
+            <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </div>
+        </div>
+
+        <div class="day-timeline">
+          <div class="timeline-item">
+            <div class="timeline-time">Evening Day 8</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Pack tonight — Don't leave it to tomorrow morning.</div>
+              <div class="timeline-detail">Pack your bags after Day 8 activities, before sleep.</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">09:00</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Wake up</div>
+              <div class="timeline-detail">Relaxed morning, no rush.</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">10:00</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Leave hotel (empty-handed)</div>
+              <div class="timeline-detail">Leave your luggage in your room. Go out completely free.</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">10:30</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Final Seoul Day</div>
+              <div class="timeline-detail">Revisit favourite spots, last-minute shopping, grab a final Korean meal. No bags, no stress.</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">19:30</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Return to hotel</div>
+              <div class="timeline-detail">Back to your room. Pack, sleep.</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">21:00</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Early night</div>
+              <div class="timeline-detail">You have an early start tomorrow. Reminder: KTX departs Day 10, May 15 at noon. You have a full morning and early afternoon.</div>
+            </div>
+          </div>
+
+          <div class="timeline-tip" style="margin: 12px 32px 0;">
+            <span class="tip-icon">💡</span>
+            <span>Leave your bags in your room. You sleep in your actual bed Thursday night. Pack only on Day 10 morning.</span>
+          </div>
+
+          <div class="meals-section">
+            <div class="meals-label">🍽️ Meals</div>
+            <div class="meal-row">
+              <span class="meal-type">Brunch</span>
+              <span class="meal-name">On the go</span>
+              <span class="meal-price">~₩10,000–15,000/pp</span>
+            </div>
+            <div class="meal-row">
+              <span class="meal-type">Dinner</span>
+              <span class="meal-name">Final Seoul dinner</span>
+              <span class="meal-price">~₩15,000–25,000/pp</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- DAY 10 -->
+      <section class="day-card visible" id="day-10">
+        <div class="day-header">
+          <div class="day-ov-bg">10</div>
+          <div class="day-header-inner">
+            <div class="day-header-top">
+              <div>
+                <div class="day-label">Day 10 · May 15, 2026</div>
+                <h2 class="day-title">Seoul → Busan (KTX)</h2>
+              </div>
+              <div style="text-align:right">
+                <div class="day-budget">💰 Budget: ~₩30,000 + ₩167,400 (booked)</div>
+              </div>
+            </div>
+            <div class="day-meta">
+              <span class="day-meta-item city-busan-seoul">📍 Seoul → Busan</span>
+              <span class="day-meta-item">🚄 KTX</span>
+              <span class="day-meta-item">🏖️ Beach</span>
+            </div>
+            <div class="day-tags">
+              <span class="day-tag">Travel</span>
+              <span class="day-tag">Scenic</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="day-toggle-bar" onclick="toggleDay('day-10')">
+          <span class="day-toggle-label">Timeline</span>
+          <div class="day-toggle-icon">
+            <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </div>
+        </div>
+
+        <div class="day-timeline">
+          <div class="timeline-item">
+            <div class="timeline-time">09:00</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Wake up</div>
+              <div class="timeline-detail">Final morning in Seoul. Your bags are already packed from last night.</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">09:30</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Last Hongdae Breakfast</div>
+              <div class="timeline-detail">Grab a final bagel or coffee near your hotel. Leave bags in room.</div>
+              <div class="timeline-money">💰 ~₩8,000–12,000/pp</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">10:00</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Checkout &amp; Leave Hotel</div>
+              <div class="timeline-detail">Return to room, collect bags, checkout. You're done with Seoul.</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">11:00</div>
+            <div class="timeline-content">
+              <div class="timeline-event">AREX to Seoul Station</div>
+              <div class="timeline-detail">Board the AREX direct (~15min). You need to be on the platform by 11:40.</div>
+              <div class="timeline-money">💰 T-money</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">11:15</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Arrive Seoul Station</div>
+              <div class="timeline-detail">AREX arrives deep underground (Level B7). KTX platforms are on Level 2F. Give yourself 10–15 min to walk + escalators + find your platform.</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">11:20</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Seoul Station First Class Lounge</div>
+              <div class="timeline-detail">KTX First Class ticket holders get access to the lounge at Seoul Station. Grab a seat, use the facilities, and relax before boarding.</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">11:40</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Board KTX — First Class</div>
+              <div class="timeline-detail">First Class luggage racks fill up fast — board early to secure your spot. Plus, your attendant will bring snacks (brownie cookies, nuts, water, wet tissues) right to your seat.</div>
+              <div class="timeline-money">💰 ₩167,400 (booked)</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">12:00</div>
+            <div class="timeline-content">
+              <div class="timeline-event">KTX departs for Busan</div>
+              <div class="timeline-detail">~2.5hr scenic ride through the Korean countryside.</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">14:30</div>
+            <div class="timeline-content">
+              <div class="timeline-warning">
+                <span class="warn-icon">⚠️</span>
+                <span><strong>Top up T-Money NOW.</strong> Your Climate Card will NOT work in Busan. Stop at a convenience store (CU, GS25, 7-Eleven) or station machine and load at least ₩30,000 onto your T-money card.</span>
+              </div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">15:30</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Check into El Momento Gwangan</div>
+              <div class="timeline-detail">Gwangalli Beach location — beach is 1 minute walk!</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">16:30</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Gwangalli Beach Walk</div>
+              <div class="timeline-detail">Explore the beachfront, take in Gwangan Bridge views.</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">19:00</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Evening Beach Walk</div>
+              <div class="timeline-detail">Watch the Gwangan Bridge lights come on at sunset.</div>
+            </div>
+          </div>
+
+          <div class="meals-section">
+            <div class="meals-label">🍽️ Meals</div>
+            <div class="meal-row">
+              <span class="meal-type">Brunch</span>
+              <span class="meal-name">Quick breakfast before checkout</span>
+              <span class="meal-price">~₩8,000–12,000/pp</span>
+            </div>
+            <div class="meal-row">
+              <span class="meal-type">Dinner</span>
+              <span class="meal-name">Anmok Dwaeji Gukbap</span>
+              <span class="meal-price">~₩9,000/pp</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- DAY 11 -->
+      <section class="day-card visible" id="day-11">
+        <div class="day-header">
+          <div class="day-ov-bg">11</div>
+          <div class="day-header-inner">
+            <div class="day-header-top">
+              <div>
+                <div class="day-label">Day 11 · May 16, 2026</div>
+                <h2 class="day-title">Haeundae, Spa Land &amp; Gwangan Bridge</h2>
+              </div>
+              <div style="text-align:right">
+                <div class="day-budget">💰 Budget: ~₩60,000</div>
+              </div>
+            </div>
+            <div class="day-meta">
+              <span class="day-meta-item city-busan">📍 Busan</span>
+              <span class="day-meta-item">🧖 Spa</span>
+              <span class="day-meta-item">🚁 Drone Show</span>
+            </div>
+            <div class="day-tags">
+              <span class="day-tag">Nature</span>
+              <span class="day-tag">Shopping</span>
+              <span class="day-tag">Food</span>
+              <span class="day-tag">Relaxation</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="day-toggle-bar" onclick="toggleDay('day-11')">
+          <span class="day-toggle-label">Timeline</span>
+          <div class="day-toggle-icon">
+            <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </div>
+        </div>
+
+        <div class="day-timeline">
+          <div class="timeline-item">
+            <div class="timeline-time">07:30</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Leave hotel</div>
+              <div class="timeline-detail">T-money — Subway to Haeundae then Bus 181 (~50min total).</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">08:30</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Haedong Yonggungsa Temple</div>
+              <div class="timeline-detail">Stunning seaside Buddhist temple perched on ocean cliffs. Free admission. Opens at 4:30 AM daily. Arrive at opening for quieter visit.</div>
+              <div class="timeline-money">💰 Free</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">10:00</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Taxi to Cheongsapo Station</div>
+              <div class="timeline-detail">~10min, ₩3,000–5,000.</div>
+              <div class="timeline-money">💰 ~₩3,000–5,000</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">10:15</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Haeundae Blueline Park — Sky Capsule: Cheongsapo → Mipo</div>
+              <div class="timeline-detail">Important: The Sky Capsule runs between Cheongsapo and Mipo only — NOT Songjeong. Board at Cheongsapo, ride toward Mipo. You step off right at Haeundae Beach! Book online ahead of time. Last ride 7:30PM in May.</div>
+              <div class="timeline-money">💰 ₩15,000–25,000/pp</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">11:00</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Haeundae Beach</div>
+              <div class="timeline-detail">Korea's most famous beach. Stroll along the boardwalk, grab a light lunch nearby.</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">12:30</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Subway to Shinsegae Centum City</div>
+              <div class="timeline-detail">T-money — ~20min.</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">13:00</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Shinsegae Centum City</div>
+              <div class="timeline-detail">World's largest department store! Shopping and exploring.</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">15:00</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Subway to Spa Land</div>
+              <div class="timeline-detail">T-money — ~20min.</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">16:00</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Spa Land Centum City</div>
+              <div class="timeline-detail">Premium jjimjilbang with 22 pools and 13 themed saunas. ₩25,000 for 4hrs. Allow 2.5–3hrs here. May = Standard Season: 9 AM – 10 PM.</div>
+              <div class="timeline-money">💰 ₩25,000/pp</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">19:30</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Dinner near Spa Land or Gwangalli</div>
+              <div class="timeline-detail">Light meal before the drone show.</div>
+              <div class="timeline-money">💰 ~₩15,000–25,000/pp</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">21:00</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Return to hotel</div>
+              <div class="timeline-detail">Freshen up for the show.</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">22:00</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Gwangalli Drone Show</div>
+              <div class="timeline-detail">Saturday night drone show over Gwangan Bridge! Shows at 8pm and 10pm. Catch the 10PM show — no rush, full dinner, and you'll be close to the hotel after. Free from Gwangalli Beach right outside hotel.</div>
+              <div class="timeline-money">💰 Free</div>
+            </div>
+          </div>
+
+          <div class="meals-section">
+            <div class="meals-label">🍽️ Meals</div>
+            <div class="meal-row">
+              <span class="meal-type">Lunch</span>
+              <span class="meal-name">Goraesa Fish Cake or Chunhachudong Milmyeon</span>
+              <span class="meal-price">~₩10,000–15,000/pp</span>
+            </div>
+            <div class="meal-row">
+              <span class="meal-type">Dinner</span>
+              <span class="meal-name">Near Spa Land or Gwangalli</span>
+              <span class="meal-price">~₩15,000–25,000/pp</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- DAY 12 -->
+      <section class="day-card visible" id="day-12">
+        <div class="day-header">
+          <div class="day-ov-bg">12</div>
+          <div class="day-header-inner">
+            <div class="day-header-top">
+              <div>
+                <div class="day-label">Day 12 · May 17, 2026</div>
+                <h2 class="day-title">Fish Markets, Gamcheon &amp; Coastal Villages</h2>
+              </div>
+              <div style="text-align:right">
+                <div class="day-budget">💰 Budget: ~₩80,000</div>
+              </div>
+            </div>
+            <div class="day-meta">
+              <span class="day-meta-item city-busan">📍 Busan</span>
+              <span class="day-meta-item">🐟 Seafood</span>
+              <span class="day-meta-item">🎨 Art</span>
+            </div>
+            <div class="day-tags">
+              <span class="day-tag">Food</span>
+              <span class="day-tag">Culture</span>
+              <span class="day-tag">Scenic</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="day-toggle-bar" onclick="toggleDay('day-12')">
+          <span class="day-toggle-label">Timeline</span>
+          <div class="day-toggle-icon">
+            <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </div>
+        </div>
+
+        <div class="day-timeline">
+          <div class="timeline-item">
+            <div class="timeline-time">09:00</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Gamcheon Culture Village</div>
+              <div class="timeline-detail">"Machu Picchu of Busan" — colorful hillside village with art installations. Opens 9AM (March–October). Go at opening to beat the Sunday tour groups. Closes 6PM. Stamp tour map ₩2,000.</div>
+              <div class="timeline-money">💰 ₩2,000</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">11:00</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Huinnyeoul Culture Village</div>
+              <div class="timeline-detail">Scenic cliffside village with ocean views, murals, and cafes. Less touristy than Gamcheon.</div>
+              <div class="timeline-money">💰 Free</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">12:30</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Jagalchi Fish Market</div>
+              <div class="timeline-detail">Korea's largest seafood market. Pick fresh fish downstairs, have it prepared as sashimi upstairs. Lunch here! Closed 1st &amp; 3rd Tuesday of month (today = Sunday ✅).</div>
+              <div class="timeline-money">💰 ~₩30,000–50,000 for two with cutting fee</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">14:00</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Gukje Market</div>
+              <div class="timeline-detail">Bustling traditional market — explore stalls, snacks, souvenirs. 5min walk from Jagalchi.</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">14:30</div>
+            <div class="timeline-content">
+              <div class="timeline-event">BIFF Square</div>
+              <div class="timeline-detail">Must-try Ssiat Hotteok (seed-filled sweet pancakes, ₩2,000). Busan International Film Festival area.</div>
+              <div class="timeline-money">💰 ₩2,000</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">15:00</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Busan Tower &amp; Yongdusan Park</div>
+              <div class="timeline-detail">Panoramic city views from the tower. 5min walk from BIFF Square. Opens 8:30AM ✅ (Apr–Sep), closes 10PM.</div>
+              <div class="timeline-money">💰 ₩8,000</div>
+            </div>
+          </div>
+
+          <div class="meals-section">
+            <div class="meals-label">🍽️ Meals</div>
+            <div class="meal-row">
+              <span class="meal-type">Lunch</span>
+              <span class="meal-name">Jagalchi Market Sashimi</span>
+              <span class="meal-price">~₩30,000–50,000 for two</span>
+            </div>
+            <div class="meal-row">
+              <span class="meal-type">Dinner</span>
+              <span class="meal-name">Nampodong or Seomyeon Area</span>
+              <span class="meal-price">~₩15,000–20,000/pp</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- DAY 13 -->
+      <section class="day-card visible" id="day-13">
+        <div class="day-header">
+          <div class="day-ov-bg">13</div>
+          <div class="day-header-inner">
+            <div class="day-header-top">
+              <div>
+                <div class="day-label">Day 13 · May 18, 2026</div>
+                <h2 class="day-title">Gyeongju Day Trip — Ancient Silla Capital</h2>
+              </div>
+              <div style="text-align:right">
+                <div class="day-budget">💰 Budget: ~₩60,000</div>
+              </div>
+            </div>
+            <div class="day-meta">
+              <span class="day-meta-item city-dmz">📍 Gyeongju</span>
+              <span class="day-meta-item">🏛️ UNESCO</span>
+              <span class="day-meta-item">🌙 Night Lights</span>
+            </div>
+            <div class="day-tags">
+              <span class="day-tag">History</span>
+              <span class="day-tag">Nature</span>
+              <span class="day-tag">Food</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="day-toggle-bar" onclick="toggleDay('day-13')">
+          <span class="day-toggle-label">Timeline</span>
+          <div class="day-toggle-icon">
+            <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </div>
+        </div>
+
+        <div class="day-timeline">
+          <div class="timeline-item">
+            <div class="timeline-time">07:00</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Early Start</div>
+              <div class="timeline-detail">Subway to Nopo Bus Terminal — T-money — Line 2 from Gwangan → transfer at Seomyeon → Line 1 to Nopo (~55min).</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">08:00</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Express Bus to Gyeongju</div>
+              <div class="timeline-detail">Buses depart every 15–20min. ₩5,800, ~50min ride. Give yourself a 10-min buffer after arrival to find the local bus stop.</div>
+              <div class="timeline-money">💰 ₩5,800/pp</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">09:00</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Bus to Bulguksa Temple</div>
+              <div class="timeline-detail">Bus 10 or 11 from Gyeongju terminal (~40min). Don't stress if you arrive at Bulguksa closer to 10:10.</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">09:50</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Bulguksa Temple</div>
+              <div class="timeline-detail">UNESCO World Heritage Site. One of Korea's most important Buddhist temples. Allow 2hrs.</div>
+              <div class="timeline-money">💰 ₩6,000/pp</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">11:50</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Taxi to Seokguram Grotto</div>
+              <div class="timeline-detail">~₩8,000–15,000, 10–15min.</div>
+              <div class="timeline-money">💰 ~₩10,000</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">12:10</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Seokguram Grotto</div>
+              <div class="timeline-detail">UNESCO World Heritage. Hilltop Buddhist grotto with iconic stone Buddha. Allow 45min.</div>
+              <div class="timeline-money">💰 ₩6,000/pp</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">13:00</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Taxi back to Gyeongju city center</div>
+              <div class="timeline-detail">Seokguram is high on a remote mountain — taxis don't wait up here. Open Kakao T and summon a ride; expect a 10–20 min wait. Take Bus 12 down to Bulguksa as backup. Total transit time: ~30–40 min.</div>
+              <div class="timeline-money">💰 ~₩15,000–20,000 total</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">13:30</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Lunch at Gyeongju Downtown</div>
+              <div class="timeline-detail">Try Gyeongju ssambap (wraps) or local restaurant.</div>
+              <div class="timeline-money">💰 ~₩12,000–18,000/pp</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">14:30</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Daereungwon Tomb Complex</div>
+              <div class="timeline-detail">Walk among massive royal burial mounds from the Silla dynasty. Enter Cheonmachong (Flying Horse Tomb). Open until 10PM ✅ (night illumination!).</div>
+              <div class="timeline-money">💰 ₩3,000/pp</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">15:30</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Cheomseongdae Observatory</div>
+              <div class="timeline-detail">World's oldest surviving astronomical observatory. 5min walk from tombs. Always open — outdoor public landmark.</div>
+              <div class="timeline-money">💰 Free</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">16:00</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Walk to Hwangnidan-gil</div>
+              <div class="timeline-detail">~10min walk from Cheomseongdae. Trendy cafe street with Pet Coffee (tomb views!), Soha Salt Pan, and restaurants.</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">16:00–18:45</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Hwangnidan-gil — Early Dinner &amp; Cafe Hopping</div>
+              <div class="timeline-detail">Arrive for an early dinner and explore the cafes. Finish by 6:45PM.</div>
+              <div class="timeline-money">💰 ~₩12,000–15,000/pp</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">19:00</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Donggung Palace &amp; Wolji Pond — Night Illumination</div>
+              <div class="timeline-detail">Walk or taxi (~5min) from Hwangnidan-gil. Arrive right at sunset as the lights turn on. Open daily 9AM–10PM (last entry 9:30PM).</div>
+              <div class="timeline-money">💰 ₩3,000/pp</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">20:30</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Taxi to Gyeongju Intercity Bus Terminal</div>
+              <div class="timeline-detail">Use Kakao T and set destination to 경주시외버스터미널 (Gyeongju Intercity Bus Terminal). ~₩5,000 taxi ride.</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">21:00</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Bus Back to Busan</div>
+              <div class="timeline-detail">Last buses run until ~22:00. ~50min ride. Arrive Nopo → subway to hotel ~22:30.</div>
+            </div>
+          </div>
+
+          <div class="timeline-info" style="margin: 12px 32px 0;">
+            <span class="info-icon">ℹ️</span>
+            <span>Daereungwon &amp; Cheomseongdae confirmed open — no Monday closures (outdoor sites with night illumination). All attractions on today's itinerary are open daily.</span>
+          </div>
+
+          <div class="timeline-urgent" style="margin: 12px 32px 0;">
+            <span class="urgent-icon">⏰</span>
+            <span><strong>Wolji Pond night illumination:</strong> Gap between Wolji photos (~8:30PM) and bus departure (9PM) is tight — keep an eye on the clock at Wolji.</span>
+          </div>
+
+          <div class="meals-section">
+            <div class="meals-label">🍽️ Meals</div>
+            <div class="meal-row">
+              <span class="meal-type">Lunch</span>
+              <span class="meal-name">Gyeongju Downtown Ssambap</span>
+              <span class="meal-price">~₩12,000–18,000/pp</span>
+            </div>
+            <div class="meal-row">
+              <span class="meal-type">Dinner</span>
+              <span class="meal-name">Hwangnidan-gil</span>
+              <span class="meal-price">~₩12,000–15,000/pp</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- DAY 14 -->
+      <section class="day-card visible" id="day-14">
+        <div class="day-header">
+          <div class="day-ov-bg">14</div>
+          <div class="day-header-inner">
+            <div class="day-header-top">
+              <div>
+                <div class="day-label">Day 14 · May 19, 2026</div>
+                <h2 class="day-title">Taejongdae, Songdo &amp; Seomyeon</h2>
+              </div>
+              <div style="text-align:right">
+                <div class="day-budget">💰 Budget: ~₩90,000</div>
+              </div>
+            </div>
+            <div class="day-meta">
+              <span class="day-meta-item city-busan">📍 Busan</span>
+              <span class="day-meta-item">🚠 Cable Car</span>
+              <span class="day-meta-item">😌 Lepak</span>
+            </div>
+            <div class="day-tags">
+              <span class="day-tag">Nature</span>
+              <span class="day-tag">Scenic</span>
+              <span class="day-tag">Shopping</span>
+              <span class="day-tag">Food</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="day-toggle-bar" onclick="toggleDay('day-14')">
+          <span class="day-toggle-label">Timeline</span>
+          <div class="day-toggle-icon">
+            <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </div>
+        </div>
+
+        <div class="day-timeline">
+          <div class="timeline-item">
+            <div class="timeline-time">09:30</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Leave hotel</div>
+              <div class="timeline-detail">T-money — Subway + Bus 101 (~50min).</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">10:30</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Taejongdae Resort Park</div>
+              <div class="timeline-detail">Dramatic coastal cliffs, lighthouse, and ocean views. Free entry. Danubi Train ₩3,000 for scenic ride around the park. Train runs 9AM–6PM.</div>
+              <div class="timeline-money">💰 ₩3,000/pp (train)</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">14:00</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Songdo Cable Car</div>
+              <div class="timeline-detail">Crystal Cruise glass-floor cable car over the ocean! ₩22,000 round trip for crystal cabin. Open 9AM–9PM (May). Fri/Sat may extend to 10PM.</div>
+              <div class="timeline-money">💰 ₩22,000/pp</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">15:30</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Songdo Cloud Trails</div>
+              <div class="timeline-detail">Scenic coastal walking trail near the cable car station.</div>
+              <div class="timeline-warning">
+                <span class="warn-icon">⚠️</span>
+                <span>Last entry may be 7PM — verify before trip.</span>
+              </div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">16:30</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Jeonpo Cafe Street</div>
+              <div class="timeline-detail">Seomyeon's trendy cafe district. Visit Vintage 38 (24hr cafe). T-money for subway.</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">17:30</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Lotte Department Store</div>
+              <div class="timeline-detail">Shopping and underground mall in Seomyeon.</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">20:30</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Return &amp; Pack</div>
+              <div class="timeline-detail">Return to hotel, pack for departure. Set alarm for 4:30am!</div>
+            </div>
+          </div>
+
+          <div class="timeline-tip" style="margin: 12px 32px 0;">
+            <span class="tip-icon">💡</span>
+            <span>Lepak day! Coastal views, cable car, and last bit of Busan before departure tomorrow.</span>
+          </div>
+
+          <div class="meals-section">
+            <div class="meals-label">🍽️ Meals</div>
+            <div class="meal-row">
+              <span class="meal-type">Lunch</span>
+              <span class="meal-name">Near Taejongdae / Yeongdo</span>
+              <span class="meal-price">~₩15,000–20,000/pp</span>
+            </div>
+            <div class="meal-row">
+              <span class="meal-type">Dinner</span>
+              <span class="meal-name">Last Busan Dinner Splurge</span>
+              <span class="meal-price">~₩30,000–50,000/pp</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- DAY 15 -->
+      <section class="day-card visible" id="day-15">
+        <div class="day-header">
+          <div class="day-ov-bg">15</div>
+          <div class="day-header-inner">
+            <div class="day-header-top">
+              <div>
+                <div class="day-label">Day 15 · May 20, 2026</div>
+                <h2 class="day-title">Departure — Busan to Singapore</h2>
+              </div>
+              <div style="text-align:right">
+                <div class="day-budget">💰 Budget: ~₩30,000</div>
+              </div>
+            </div>
+            <div class="day-meta">
+              <span class="day-meta-item city-busan">📍 Busan → Singapore</span>
+              <span class="day-meta-item">✈️ SQ615</span>
+              <span class="day-meta-item">🏠 Home</span>
+            </div>
+            <div class="day-tags">
+              <span class="day-tag">Travel</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="day-toggle-bar" onclick="toggleDay('day-15')">
+          <span class="day-toggle-label">Timeline</span>
+          <div class="day-toggle-icon">
+            <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </div>
+        </div>
+
+        <div class="day-timeline">
+          <div class="timeline-item">
+            <div class="timeline-time">04:30</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Wake Up</div>
+              <div class="timeline-detail">Very early morning — final packing and preparation.</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">05:00</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Check Out</div>
+              <div class="timeline-detail">Check out of El Momento Gwangan.</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">05:15</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Taxi to Gimhae Airport</div>
+              <div class="timeline-detail">~30–40min taxi ride (no traffic at 5am). ~₩25,000–30,000. Book via KakaoTaxi the night before! Consider 04:45 as backup departure.</div>
+              <div class="timeline-money">💰 ₩25,000–30,000 (taxi)</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">06:00</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Airport Check-in</div>
+              <div class="timeline-detail">Check in for SQ615 at Gimhae International Airport.</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">08:15</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Depart Busan — Singapore Airlines SQ615</div>
+              <div class="timeline-detail">PUS → SIN.</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">13:40</div>
+            <div class="timeline-content">
+              <div class="timeline-event">Arrive Singapore — Welcome home! 🏠</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div><!-- /.days-section -->
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-logo">Korea <span>2026</span></div>
+      <div class="footer-sub">May 6 – 20 · Seoul + Busan · 15 Days</div>
+      <div class="footer-stats">
+        <div class="footer-stat">
+          <div class="footer-stat-val">15</div>
+          <div class="footer-stat-key">Days</div>
+        </div>
+        <div class="footer-stat">
+          <div class="footer-stat-val">2</div>
+          <div class="footer-stat-key">Cities</div>
+        </div>
+        <div class="footer-stat">
+          <div class="footer-stat-val">Seoul</div>
+          <div class="footer-stat-key">+ Busan</div>
+        </div>
+        <div class="footer-stat">
+          <div class="footer-stat-val">~₩1M</div>
+          <div class="footer-stat-key">Budget</div>
+        </div>
+      </div>
+      <div class="footer-divider"></div>
+      <div class="footer-copy">Korea 2026 Itinerary · Crafted with care · Singapore → Incheon → Busan → Singapore</div>
+    </div>
+  </footer>
+
+  <!-- Back to top button -->
+  <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">
+    <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"></polyline></svg>
+  </button>
+
+  <script>
+    // ====== EXPAND / COLLAPSE ======
+    function toggleDay(id) {
+      const card = document.getElementById(id);
+      if (!card) return;
+      card.classList.toggle('collapsed');
+    }
+
+    // ====== STICKY NAV ACTIVE STATE ======
+    const tabs = document.querySelectorAll('.day-tab');
+    const sections = document.querySelectorAll('.day-card');
+
+    function updateActiveTab() {
+      let current = '';
+      const scrollY = window.scrollY + 120;
+      sections.forEach(section => {
+        if (scrollY >= section.offsetTop) {
+          current = section.getAttribute('id');
+        }
+      });
+      tabs.forEach(tab => {
+        tab.classList.toggle('active', tab.getAttribute('href') === '#' + current);
+      });
+
+      // Keep active tab visible in scrollable nav
+      const activeTab = document.querySelector('.day-tab.active');
+      if (activeTab) {
+        activeTab.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+      }
+    }
+
+    window.addEventListener('scroll', updateActiveTab, { passive: true });
+
+    // ====== BACK TO TOP VISIBILITY ======
+    const backToTop = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      backToTop.classList.toggle('visible', window.scrollY > 600);
+    }, { passive: true });
+
+    // ====== SCROLL REVEAL FOR DAY CARDS ======
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.day-card').forEach((card, i) => {
+      // Add staggered delay based on order
+      card.style.transitionDelay = `${Math.min(i * 0.03, 0.5)}s`;
+      observer.observe(card);
+    });
+
+    // ====== INITIAL STATE ======
+    updateActiveTab();
+  </script>
+</body>
+</html>
