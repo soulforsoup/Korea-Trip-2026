@@ -32,9 +32,9 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     html {
-      scroll-behavior: smooth;
+      scroll-behavior: auto;
       scroll-padding-top: 80px;
-      overscroll-behavior: none;
+      overscroll-behavior: auto;
     }
 
     body {
@@ -42,11 +42,15 @@
       background: var(--cream);
       color: var(--text-body);
       line-height: 1.6;
-      overflow-x: hidden;
-      overscroll-behavior: none;
-      -webkit-overflow-scrolling: touch;
-      min-height: 100dvh;
+      overscroll-behavior: auto;
+      min-height: 100vh;
     }
+
+    /* Prevent any horizontal overflow at root level */
+    html { overflow-x: hidden; }
+
+    /* Keep body as the natural page scroll container */
+    main, section, article { max-width: 100%; overflow-x: hidden; }
 
     ::selection {
       background: var(--gold);
@@ -61,7 +65,7 @@
     /* ===== HEADER / HERO ===== */
     .hero {
       position: relative;
-      min-height: 100dvh;
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -804,7 +808,7 @@
 
     /* ===== RESPONSIVE ===== */
     @media (max-width: 640px) {
-      .hero { min-height: 100dvh; padding: 60px 20px 40px; }
+      .hero { min-height: 100vh; padding: 60px 20px 40px; }
       .hero-stats { gap: 24px; }
       .hero-stat-num { font-size: 1.5rem; }
 
