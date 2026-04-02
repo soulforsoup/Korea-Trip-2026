@@ -336,6 +336,134 @@
       .grand-total-krw, .grand-total-sgd { text-align: center; }
     }
 
+    /* ===== ALREADY PAID SECTION ===== */
+    .already-paid-section {
+      margin: 24px auto 0;
+      max-width: 860px;
+      padding: 0 16px;
+    }
+
+    .already-paid-card {
+      background: linear-gradient(135deg, rgba(39,174,96,0.08) 0%, rgba(39,174,96,0.03) 100%);
+      border: 1px solid rgba(39,174,96,0.25);
+      border-radius: var(--radius-lg);
+      padding: 20px 24px;
+      box-shadow: 0 2px 12px rgba(39,174,96,0.1);
+    }
+
+    .already-paid-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+
+    .already-paid-icon {
+      font-size: 1.3rem;
+    }
+
+    .already-paid-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #27ae60;
+      margin: 0;
+    }
+
+    .already-paid-total {
+      margin-left: auto;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #1a1a2e;
+      background: rgba(39,174,96,0.12);
+      padding: 4px 12px;
+      border-radius: 20px;
+    }
+
+    .already-paid-items {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .paid-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 14px;
+      background: rgba(255,255,255,0.7);
+      border-radius: var(--radius-sm);
+      border: 1px solid rgba(39,174,96,0.15);
+    }
+
+    .paid-item-icon {
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+
+    .paid-item-details {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .paid-item-name {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-dark);
+    }
+
+    .paid-item-note {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .paid-item-amount {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 2px;
+    }
+
+    .paid-sgd, .paid-krw {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #27ae60;
+    }
+
+    .paid-status {
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #fff;
+      background: #27ae60;
+      padding: 2px 8px;
+      border-radius: 10px;
+    }
+
+    .already-paid-note {
+      margin-top: 12px;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      text-align: center;
+    }
+
+    @media (max-width: 500px) {
+      .paid-item {
+        flex-wrap: wrap;
+      }
+      .paid-item-amount {
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 8px;
+      }
+    }
+
     /* ===== CATEGORY SECTIONS ===== */
     .budget-sections {
       padding-top: 48px;
@@ -1096,6 +1224,55 @@
     </div>
   </div>
 
+  <!-- ALREADY PAID SECTION -->
+  <div class="already-paid-section">
+    <div class="already-paid-card">
+      <div class="already-paid-header">
+        <span class="already-paid-icon">✅</span>
+        <h3 class="already-paid-title">Already Paid</h3>
+        <span class="already-paid-total">S$2,217.13 + ₩650,152</span>
+      </div>
+      <div class="already-paid-items">
+        <div class="paid-item">
+          <div class="paid-item-icon">🏨</div>
+          <div class="paid-item-details">
+            <div class="paid-item-name">Seoul Lodging (9 nights)</div>
+            <div class="paid-item-note">Nights 1–9 · Budget to mid-range hotels</div>
+          </div>
+          <div class="paid-item-amount">
+            <span class="paid-sgd">S$1,033.53</span>
+            <span class="paid-status">PAID</span>
+          </div>
+        </div>
+        <div class="paid-item">
+          <div class="paid-item-icon">🏨</div>
+          <div class="paid-item-details">
+            <div class="paid-item-name">Busan Lodging (5 nights)</div>
+            <div class="paid-item-note">Nights 10–14 · Gwangalli beachfront</div>
+          </div>
+          <div class="paid-item-amount">
+            <span class="paid-krw">₩650,152</span>
+            <span class="paid-status">PAID</span>
+          </div>
+        </div>
+        <div class="paid-item">
+          <div class="paid-item-icon">✈️</div>
+          <div class="paid-item-details">
+            <div class="paid-item-name">Return Flights (2 pax)</div>
+            <div class="paid-item-note">SIN ↔ ICN · Singapore Airlines</div>
+          </div>
+          <div class="paid-item-amount">
+            <span class="paid-sgd">S$1,183.60</span>
+            <span class="paid-status">PAID</span>
+          </div>
+        </div>
+      </div>
+      <div class="already-paid-note">
+        💡 Tip: Two travellers sharing costs · Accommodation & flights booked ✅
+      </div>
+    </div>
+  </div>
+
   <!-- MAIN SECTIONS -->
   <main class="main-content">
     <div class="budget-sections">
@@ -1109,7 +1286,7 @@
             <h2 class="category-title">Accommodation</h2>
             <div class="category-amounts">
               <div class="cat-amount">
-                <span class="cat-amount-krw">₩2,120,000</span>
+                <span class="cat-amount-krw">₩2,120,000 <span class="badge badge-confirmed">Booked</span></span>
                 <span class="cat-amount-sgd">~S$2,544</span>
               </div>
             </div>
@@ -1129,63 +1306,38 @@
             <tbody>
               <tr>
                 <td>
-                  <div class="item-name">Seoul — Nights 1–3</div>
-                  <div class="item-note">Budget hotel, 7min walk to Hongik Univ Stn</div>
+                  <div class="item-name">Seoul — Nights 1–9 <span class="badge badge-confirmed">PAID</span></div>
+                  <div class="item-note">9 nights booked · Actual: S$1,033.53 SGD</div>
                 </td>
-                <td class="item-name">3-star hotel</td>
-                <td>₩80,000</td>
-                <td>₩240,000</td>
-                <td>~S$288</td>
-              </tr>
-              <tr>
-                <td>
-                  <div class="item-name">Seoul — Nights 4–5</div>
-                  <div class="item-note">Mid-range upgrade</div>
-                </td>
-                <td class="item-name">Mid-range hotel</td>
-                <td>₩120,000</td>
-                <td>₩240,000</td>
-                <td>~S$288</td>
-              </tr>
-              <tr>
-                <td>
-                  <div class="item-name">Seoul — Nights 6–7</div>
-                  <div class="item-note">Airbnb / serviced residence</div>
-                </td>
-                <td class="item-name">Airbnb</td>
-                <td>₩200,000</td>
-                <td>₩400,000</td>
-                <td>~S$480</td>
-              </tr>
-              <tr>
-                <td>
-                  <div class="item-name">Seoul — Nights 8–9</div>
-                  <div class="item-note">Mid-range hotel</div>
-                </td>
-                <td class="item-name">Mid-range hotel</td>
-                <td>₩120,000</td>
-                <td>₩240,000</td>
-                <td>~S$288</td>
+                <td class="item-name">Mixed (budget-mid)</td>
+                <td>avg ₩124,444</td>
+                <td>—</td>
+                <td><strong style="color:#27ae60;">S$1,033.53</strong></td>
               </tr>
               <tr class="sub-row">
-                <td colspan="3">Seoul Subtotal (9 nights)</td>
-                <td>₩1,120,000</td>
-                <td>~S$1,344</td>
+                <td colspan="3">Seoul Subtotal (9 nights) — PAID</td>
+                <td>—</td>
+                <td>S$1,033.53</td>
               </tr>
               <tr>
                 <td>
-                  <div class="item-name">Busan — Nights 10–14</div>
-                  <div class="item-note">El Momento Gwangan or similar · Gwangalli beachfront</div>
+                  <div class="item-name">Busan — Nights 10–14 <span class="badge badge-confirmed">PAID</span></div>
+                  <div class="item-note">El Momento Gwangan or similar · Actual: ₩650,152 KRW</div>
                 </td>
                 <td class="item-name">Beach hotel</td>
-                <td>₩200,000</td>
-                <td>₩1,000,000</td>
-                <td>~S$1,200</td>
+                <td>₩130,030</td>
+                <td><strong style="color:#27ae60;">₩650,152</strong></td>
+                <td>~S$780</td>
+              </tr>
+              <tr class="sub-row">
+                <td colspan="3">Busan Subtotal (5 nights) — PAID</td>
+                <td>₩650,152</td>
+                <td>~S$780</td>
               </tr>
               <tr class="total-row">
-                <td colspan="3"><strong>Accommodation Total</strong> <span class="badge badge-estimate">Estimate</span></td>
-                <td><strong class="krw">₩2,120,000</strong></td>
-                <td><strong class="sgd">~S$2,544</strong></td>
+                <td colspan="3"><strong>Accommodation Total</strong> <span class="badge badge-confirmed">Booked</span></td>
+                <td><strong class="krw">₩650,152</strong> <span style="font-size:0.7rem;color:var(--text-muted);">+ S$1,033.53</span></td>
+                <td><strong class="sgd">~S$1,813</strong></td>
               </tr>
             </tbody>
           </table>
@@ -2141,6 +2293,8 @@
       document.getElementById('perday'),
     ];
 
+    let lastActiveId = 'summary';
+
     function updateActiveTab() {
       let current = 'summary';
       const scrollY = window.scrollY + 140;
@@ -2153,9 +2307,13 @@
         tab.classList.toggle('active', tab.getAttribute('href') === '#' + current);
       });
 
-      const activeTab = document.querySelector('.budget-tab.active');
-      if (activeTab) {
-        activeTab.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+      // Only scroll the tab into view when active section changes (not on every scroll)
+      if (current !== lastActiveId) {
+        lastActiveId = current;
+        const activeTab = document.querySelector('.budget-tab.active');
+        if (activeTab) {
+          activeTab.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+        }
       }
     }
 
