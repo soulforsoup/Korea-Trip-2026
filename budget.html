@@ -1,0 +1,2188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Budget · Korea 2026 — May 6–20</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #0d1b2a;
+      --navy-mid: #1b2a4a;
+      --navy-light: #243b5e;
+      --cream: #f5f0e8;
+      --cream-dark: #e8e0d0;
+      --gold: #c9a84c;
+      --gold-light: #e0c060;
+      --red: #c0392b;
+      --red-light: #e74c3c;
+      --text-dark: #1a1a2e;
+      --text-body: #3d3d5c;
+      --text-muted: #6b6b8a;
+      --shadow-sm: 0 2px 8px rgba(13,27,42,0.08);
+      --shadow-md: 0 4px 20px rgba(13,27,42,0.12);
+      --shadow-lg: 0 8px 40px rgba(13,27,42,0.18);
+      --radius-sm: 6px;
+      --radius-md: 12px;
+      --radius-lg: 20px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      scroll-padding-top: 60px;
+      overflow-x: hidden;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--cream);
+      color: var(--text-body);
+      line-height: 1.6;
+      min-height: 100%;
+    }
+
+    ::selection {
+      background: var(--gold);
+      color: var(--navy);
+    }
+
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-track { background: var(--cream-dark); }
+    ::-webkit-scrollbar-thumb { background: var(--navy-light); border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--navy-mid); }
+
+    /* ===== HEADER / HERO ===== */
+    .hero {
+      position: relative;
+      min-height: 60vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 80px 24px 60px;
+      background: var(--navy);
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 0%, rgba(201,168,76,0.15) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 80% at 20% 100%, rgba(192,57,43,0.1) 0%, transparent 50%),
+        radial-gradient(ellipse 60% 80% at 80% 100%, rgba(192,57,43,0.1) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .hero-pattern {
+      position: absolute;
+      inset: 0;
+      opacity: 0.06;
+      background-image:
+        repeating-linear-gradient(45deg, var(--gold) 0, var(--gold) 1px, transparent 0, transparent 50%),
+        repeating-linear-gradient(-45deg, var(--gold) 0, var(--gold) 1px, transparent 0, transparent 50%);
+      background-size: 40px 40px;
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-eyebrow {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+      opacity: 0;
+      animation: fadeUp 0.6s ease 0.2s forwards;
+    }
+
+    .hero-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(3rem, 8vw, 5.5rem);
+      font-weight: 800;
+      color: var(--cream);
+      line-height: 0.95;
+      letter-spacing: -0.02em;
+      margin-bottom: 24px;
+      opacity: 0;
+      animation: fadeUp 0.7s ease 0.35s forwards;
+    }
+
+    .hero-title span {
+      display: block;
+      color: var(--gold);
+      font-style: italic;
+      font-weight: 400;
+      font-size: 0.5em;
+      letter-spacing: 0.05em;
+    }
+
+    .hero-subtitle {
+      font-family: 'Inter', sans-serif;
+      font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+      font-weight: 300;
+      color: rgba(245,240,232,0.7);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      opacity: 0;
+      animation: fadeUp 0.6s ease 0.5s forwards;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 40px;
+      margin-top: 40px;
+      opacity: 0;
+      animation: fadeUp 0.6s ease 0.65s forwards;
+    }
+
+    .hero-stat {
+      text-align: center;
+    }
+
+    .hero-stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--gold);
+    }
+
+    .hero-stat-label {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(245,240,232,0.5);
+      margin-top: 4px;
+    }
+
+    .hero-divider {
+      width: 1px;
+      background: rgba(201,168,76,0.3);
+      align-self: stretch;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ===== STICKY NAV ===== */
+    .budget-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: var(--navy);
+      border-bottom: 1px solid rgba(201,168,76,0.2);
+      box-shadow: var(--shadow-md);
+    }
+
+    .budget-nav-inner {
+      overflow-x: auto;
+      overflow-y: visible;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+
+    .budget-nav-inner::-webkit-scrollbar { display: none; }
+
+    .budget-tabs {
+      display: flex;
+      min-width: max-content;
+      padding: 0 16px;
+    }
+
+    .budget-tab {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 12px 16px;
+      cursor: pointer;
+      border-bottom: 3px solid transparent;
+      transition: all 0.2s ease;
+      text-decoration: none;
+      color: rgba(245,240,232,0.5);
+      min-width: 90px;
+      flex-shrink: 0;
+    }
+
+    .budget-tab:hover {
+      color: rgba(245,240,232,0.85);
+      background: rgba(201,168,76,0.05);
+    }
+
+    .budget-tab.active {
+      color: var(--gold);
+      border-bottom-color: var(--gold);
+    }
+
+    .budget-tab-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-top: 3px;
+    }
+
+    .budget-tab-icon {
+      font-size: 1.1rem;
+    }
+
+    /* ===== MAIN LAYOUT ===== */
+    .main-content {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+
+    /* ===== GRAND TOTAL CARD ===== */
+    .grand-total-section {
+      margin: -40px auto 0;
+      max-width: 860px;
+      padding: 0 16px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .grand-total-card {
+      background: var(--navy);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      border: 1px solid rgba(201,168,76,0.25);
+      box-shadow: var(--shadow-lg);
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .grand-total-krw {
+      text-align: left;
+    }
+
+    .grand-total-label {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 6px;
+    }
+
+    .grand-total-krw .gt-amount {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8rem;
+      font-weight: 800;
+      color: var(--cream);
+      line-height: 1;
+    }
+
+    .grand-total-krw .gt-sub {
+      font-size: 0.8rem;
+      color: rgba(245,240,232,0.5);
+      margin-top: 4px;
+    }
+
+    .grand-total-divider {
+      width: 1px;
+      height: 60px;
+      background: rgba(201,168,76,0.25);
+    }
+
+    .grand-total-sgd {
+      text-align: right;
+    }
+
+    .grand-total-sgd .gt-amount {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8rem;
+      font-weight: 800;
+      color: var(--gold);
+      line-height: 1;
+    }
+
+    .grand-total-sgd .gt-sub {
+      font-size: 0.8rem;
+      color: rgba(245,240,232,0.5);
+      margin-top: 4px;
+    }
+
+    .grand-total-note {
+      text-align: center;
+      font-size: 0.72rem;
+      color: rgba(245,240,232,0.4);
+      margin-top: 12px;
+      grid-column: 1 / -1;
+    }
+
+    @media (max-width: 600px) {
+      .grand-total-card {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .grand-total-divider { display: none; }
+      .grand-total-krw, .grand-total-sgd { text-align: center; }
+    }
+
+    /* ===== CATEGORY SECTIONS ===== */
+    .budget-sections {
+      padding-top: 48px;
+      padding-bottom: 60px;
+    }
+
+    .category-section {
+      background: #fff;
+      border-radius: var(--radius-lg);
+      margin-bottom: 28px;
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+      border: 1px solid rgba(13,27,42,0.06);
+      scroll-margin-top: 60px;
+    }
+
+    .category-header {
+      padding: 24px 28px 20px;
+      position: relative;
+      overflow: hidden;
+      background: var(--navy);
+    }
+
+    .category-header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 100% at 0% 50%, rgba(201,168,76,0.08) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .category-header-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .category-icon {
+      font-size: 1.4rem;
+      margin-bottom: 6px;
+    }
+
+    .category-label {
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 4px;
+    }
+
+    .category-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--cream);
+      line-height: 1.2;
+    }
+
+    .category-amounts {
+      display: flex;
+      gap: 20px;
+      margin-top: 10px;
+      flex-wrap: wrap;
+    }
+
+    .cat-amount {
+      display: flex;
+      flex-direction: column;
+      background: rgba(255,255,255,0.06);
+      border-radius: var(--radius-sm);
+      padding: 6px 14px;
+      border: 1px solid rgba(201,168,76,0.15);
+    }
+
+    .cat-amount-krw {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--cream);
+    }
+
+    .cat-amount-sgd {
+      font-size: 0.7rem;
+      color: var(--gold-light);
+      font-weight: 500;
+    }
+
+    /* Category body */
+    .category-body {
+      padding: 0;
+    }
+
+    /* Tables */
+    .budget-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .budget-table th {
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      padding: 10px 20px;
+      text-align: left;
+      border-bottom: 2px solid var(--cream-dark);
+      background: rgba(13,27,42,0.02);
+    }
+
+    .budget-table th:last-child,
+    .budget-table th:nth-last-child(2) {
+      text-align: right;
+    }
+
+    .budget-table td {
+      padding: 11px 20px;
+      font-size: 0.83rem;
+      color: var(--text-body);
+      border-bottom: 1px solid rgba(13,27,42,0.05);
+      vertical-align: top;
+    }
+
+    .budget-table tr:nth-child(even) td {
+      background: rgba(13,27,42,0.02);
+    }
+
+    .budget-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .budget-table td:last-child,
+    .budget-table td:nth-last-child(2) {
+      text-align: right;
+      font-weight: 600;
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+    }
+
+    .budget-table td.item-name {
+      font-weight: 500;
+      color: var(--text-dark);
+    }
+
+    .budget-table td.item-note {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      padding-top: 6px;
+      padding-bottom: 6px;
+    }
+
+    .budget-table td.total-row {
+      font-weight: 700;
+      color: var(--text-dark);
+      background: rgba(201,168,76,0.05) !important;
+      border-top: 2px solid var(--cream-dark);
+    }
+
+    .budget-table td.total-row .krw {
+      color: var(--text-dark);
+    }
+
+    .budget-table td.total-row .sgd {
+      color: var(--gold);
+    }
+
+    .budget-table td.grand-row {
+      font-weight: 800;
+      font-size: 0.95rem;
+      color: var(--navy);
+      background: rgba(201,168,76,0.1) !important;
+      border-top: 2px solid var(--gold);
+    }
+
+    .budget-table td.grand-row .krw {
+      color: var(--navy);
+      font-family: 'Playfair Display', serif;
+    }
+
+    .budget-table td.grand-row .sgd {
+      color: var(--gold);
+    }
+
+    .budget-table tr.sub-row td {
+      padding-top: 6px;
+      padding-bottom: 6px;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      background: rgba(13,27,42,0.015) !important;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 1px 7px;
+      border-radius: 10px;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+    }
+
+    .badge-confirmed {
+      background: rgba(39,174,96,0.1);
+      color: #27ae60;
+      border: 1px solid rgba(39,174,96,0.2);
+    }
+
+    .badge-estimate {
+      background: rgba(201,168,76,0.1);
+      color: #b8860b;
+      border: 1px solid rgba(201,168,76,0.25);
+    }
+
+    .badge-warning {
+      background: rgba(192,57,43,0.08);
+      color: var(--red);
+      border: 1px solid rgba(192,57,43,0.2);
+    }
+
+    /* ===== FLAGS / THINGS TO KNOW ===== */
+    .flags-section {
+      margin-bottom: 28px;
+    }
+
+    .flags-header {
+      padding: 20px 28px 16px;
+      background: var(--navy);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .flags-header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 100% at 0% 50%, rgba(192,57,43,0.1) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .flags-header-inner { position: relative; z-index: 1; }
+
+    .flags-label {
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--red-light);
+      margin-bottom: 4px;
+    }
+
+    .flags-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--cream);
+    }
+
+    .flags-list {
+      list-style: none;
+    }
+
+    .flags-item {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 12px;
+      padding: 14px 20px;
+      border-bottom: 1px solid rgba(13,27,42,0.05);
+      align-items: start;
+    }
+
+    .flags-item:nth-child(even) {
+      background: rgba(13,27,42,0.02);
+    }
+
+    .flags-item:last-child {
+      border-bottom: none;
+    }
+
+    .flags-status {
+      font-size: 0.65rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 10px;
+      white-space: nowrap;
+      margin-top: 2px;
+    }
+
+    .flags-status.open {
+      background: rgba(192,57,43,0.1);
+      color: var(--red);
+    }
+
+    .flags-status.verify {
+      background: rgba(201,168,76,0.1);
+      color: #b8860b;
+    }
+
+    .flags-status.ok {
+      background: rgba(39,174,96,0.1);
+      color: #27ae60;
+    }
+
+    .flags-item-name {
+      font-size: 0.83rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      line-height: 1.4;
+    }
+
+    .flags-item-action {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-top: 3px;
+      line-height: 1.4;
+    }
+
+    .flags-impact {
+      font-size: 0.7rem;
+      font-weight: 600;
+      white-space: nowrap;
+      text-align: right;
+      color: var(--gold);
+    }
+
+    /* ===== PER-DAY TABLE ===== */
+    .perday-section {
+      margin-bottom: 28px;
+    }
+
+    .perday-header {
+      padding: 20px 28px 16px;
+      background: var(--navy);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .perday-header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 100% at 0% 50%, rgba(201,168,76,0.08) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .perday-header-inner { position: relative; z-index: 1; }
+
+    .perday-label {
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 4px;
+    }
+
+    .perday-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--cream);
+    }
+
+    .budget-table .day-num {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      color: var(--navy);
+      font-size: 0.85rem;
+      white-space: nowrap;
+    }
+
+    .budget-table .day-name {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 1px;
+    }
+
+    /* ===== SAVINGS TIPS ===== */
+    .tips-section {
+      margin-bottom: 28px;
+    }
+
+    .tips-header {
+      padding: 20px 28px 16px;
+      background: var(--navy);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .tips-header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 100% at 0% 50%, rgba(39,174,96,0.1) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .tips-header-inner { position: relative; z-index: 1; }
+
+    .tips-label {
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: #27ae60;
+      margin-bottom: 4px;
+    }
+
+    .tips-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--cream);
+    }
+
+    .tips-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 12px;
+      padding: 16px 20px;
+    }
+
+    .tip-card {
+      background: rgba(39,174,96,0.04);
+      border: 1px solid rgba(39,174,96,0.15);
+      border-radius: var(--radius-sm);
+      padding: 14px 16px;
+    }
+
+    .tip-card-title {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 5px;
+    }
+
+    .tip-card-desc {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .tip-savings {
+      display: inline-flex;
+      align-items: center;
+      margin-top: 6px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: #27ae60;
+      background: rgba(39,174,96,0.08);
+      padding: 2px 8px;
+      border-radius: 10px;
+    }
+
+    /* ===== SUMMARY BAR ===== */
+    .summary-bar {
+      background: var(--navy);
+      border-radius: var(--radius-md);
+      padding: 20px 24px;
+      margin-bottom: 28px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      align-items: center;
+      justify-content: space-between;
+      border: 1px solid rgba(201,168,76,0.15);
+    }
+
+    .summary-item {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .summary-key {
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(245,240,232,0.4);
+    }
+
+    .summary-val {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--cream);
+    }
+
+    .summary-val.gold { color: var(--gold); }
+
+    .summary-divider {
+      width: 1px;
+      height: 36px;
+      background: rgba(201,168,76,0.2);
+    }
+
+    /* ===== NAV LINK BACK ===== */
+    .nav-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 18px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(201,168,76,0.2);
+      border-radius: 30px;
+      color: var(--cream);
+      text-decoration: none;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      transition: all 0.2s ease;
+      margin-bottom: 4px;
+    }
+
+    .nav-back:hover {
+      background: rgba(201,168,76,0.1);
+      border-color: var(--gold);
+      color: var(--gold-light);
+    }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      background: var(--navy);
+      padding: 40px 24px;
+      text-align: center;
+    }
+
+    .footer-inner {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--cream);
+      margin-bottom: 8px;
+    }
+
+    .footer-logo span { color: var(--gold); font-style: italic; }
+
+    .footer-sub {
+      font-size: 0.78rem;
+      color: rgba(245,240,232,0.4);
+      margin-bottom: 24px;
+    }
+
+    .footer-stats {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+
+    .footer-stat {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .footer-stat-val {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--gold);
+    }
+
+    .footer-stat-key {
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(245,240,232,0.35);
+    }
+
+    .footer-divider {
+      width: 40px;
+      height: 1px;
+      background: rgba(201,168,76,0.2);
+      margin: 24px auto;
+    }
+
+    .footer-copy {
+      font-size: 0.72rem;
+      color: rgba(245,240,232,0.25);
+    }
+
+    /* ===== BACK TO TOP ===== */
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 44px;
+      height: 44px;
+      background: var(--navy);
+      border: 1px solid rgba(201,168,76,0.3);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      z-index: 50;
+      box-shadow: var(--shadow-md);
+    }
+
+    .back-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .back-to-top:hover {
+      background: var(--navy-mid);
+      border-color: var(--gold);
+      transform: translateY(-3px);
+    }
+
+    .back-to-top svg {
+      width: 18px;
+      height: 18px;
+      stroke: var(--gold);
+      stroke-width: 2;
+      fill: none;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 640px) {
+      .hero { min-height: 55vh; padding: 60px 20px 40px; }
+      .hero-stats { gap: 20px; }
+      .hero-stat-num { font-size: 1.5rem; }
+      .grand-total-card { padding: 24px 20px; }
+      .grand-total-krw .gt-amount,
+      .grand-total-sgd .gt-amount { font-size: 2.2rem; }
+      .budget-table th, .budget-table td { padding: 9px 14px; }
+      .category-header { padding: 20px 20px 16px; }
+      .flags-item { grid-template-columns: auto 1fr; }
+      .flags-impact { display: none; }
+      .tips-grid { grid-template-columns: 1fr; }
+    }
+
+    /* Smooth entrance */
+    .category-section,
+    .flags-section,
+    .perday-section,
+    .tips-section {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .category-section.visible,
+    .flags-section.visible,
+    .perday-section.visible,
+    .tips-section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-pattern"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Trip Budget</p>
+      <h1 class="hero-title">Korea <span>2026</span></h1>
+      <p class="hero-subtitle">May 6 – 20 &nbsp;·&nbsp; Seoul + Busan &nbsp;·&nbsp; 15 Days</p>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-num">₩4.27M</div>
+          <div class="hero-stat-label">KRW Total</div>
+        </div>
+        <div class="hero-divider"></div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">S$5,125</div>
+          <div class="hero-stat-label">SGD Estimate</div>
+        </div>
+        <div class="hero-divider"></div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">7</div>
+          <div class="hero-stat-label">Categories</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-kr-accent"></div>
+  </header>
+
+  <!-- STICKY BUDGET NAV -->
+  <nav class="budget-nav" id="budgetNav">
+    <div class="budget-nav-inner">
+      <div class="budget-tabs" id="budgetTabs">
+        <a href="#summary" class="budget-tab active">
+          <span class="budget-tab-icon">🏠</span>
+          <span class="budget-tab-label">Summary</span>
+        </a>
+        <a href="#accommodation" class="budget-tab">
+          <span class="budget-tab-icon">🏨</span>
+          <span class="budget-tab-label">Stay</span>
+        </a>
+        <a href="#transport" class="budget-tab">
+          <span class="budget-tab-icon">🚇</span>
+          <span class="budget-tab-label">Transport</span>
+        </a>
+        <a href="#activities" class="budget-tab">
+          <span class="budget-tab-icon">🎟️</span>
+          <span class="budget-tab-label">Activities</span>
+        </a>
+        <a href="#food" class="budget-tab">
+          <span class="budget-tab-icon">🍽️</span>
+          <span class="budget-tab-label">Food</span>
+        </a>
+        <a href="#connectivity" class="budget-tab">
+          <span class="budget-tab-icon">📱</span>
+          <span class="budget-tab-label">Data</span>
+        </a>
+        <a href="#insurance" class="budget-tab">
+          <span class="budget-tab-icon">🛡️</span>
+          <span class="budget-tab-label">Insurance</span>
+        </a>
+        <a href="#shopping" class="budget-tab">
+          <span class="budget-tab-icon">🛍️</span>
+          <span class="budget-tab-label">Shopping</span>
+        </a>
+        <a href="#flags" class="budget-tab">
+          <span class="budget-tab-icon">⚠️</span>
+          <span class="budget-tab-label">Flags</span>
+        </a>
+        <a href="#perday" class="budget-tab">
+          <span class="budget-tab-icon">📅</span>
+          <span class="budget-tab-label">Per Day</span>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- GRAND TOTAL CARD -->
+  <div class="grand-total-section" id="summary">
+    <div class="grand-total-card">
+      <div class="grand-total-krw">
+        <div class="grand-total-label">Grand Total (KRW)</div>
+        <div class="gt-amount">₩4,270,750</div>
+        <div class="gt-sub">Solo traveller · 15 days</div>
+      </div>
+      <div class="grand-total-divider"></div>
+      <div class="grand-total-sgd">
+        <div class="grand-total-label">SGD Equivalent</div>
+        <div class="gt-amount">S$5,125</div>
+        <div class="gt-sub">@ ₩1,000 ≈ S$1.20</div>
+      </div>
+      <div class="grand-total-note">
+        ⚠️ Realistic blended planning rate — market rate at travel date may differ &nbsp;·&nbsp; Range: S$4,800 – S$5,500 &nbsp;·&nbsp; 10% contingency buffer included
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN SECTIONS -->
+  <main class="main-content">
+    <div class="budget-sections">
+
+      <!-- ===== ACCOMMODATION ===== -->
+      <section class="category-section" id="accommodation">
+        <div class="category-header">
+          <div class="category-header-inner">
+            <div class="category-icon">🏨</div>
+            <div class="category-label">Category 1</div>
+            <h2 class="category-title">Accommodation</h2>
+            <div class="category-amounts">
+              <div class="cat-amount">
+                <span class="cat-amount-krw">₩2,120,000</span>
+                <span class="cat-amount-sgd">~S$2,544</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="category-body">
+          <table class="budget-table">
+            <thead>
+              <tr>
+                <th>Location / Nights</th>
+                <th>Type</th>
+                <th>Rate/Night</th>
+                <th>KRW</th>
+                <th>SGD</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <div class="item-name">Seoul — Nights 1–3</div>
+                  <div class="item-note">Budget hotel, 7min walk to Hongik Univ Stn</div>
+                </td>
+                <td class="item-name">3-star hotel</td>
+                <td>₩80,000</td>
+                <td>₩240,000</td>
+                <td>~S$288</td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="item-name">Seoul — Nights 4–5</div>
+                  <div class="item-note">Mid-range upgrade</div>
+                </td>
+                <td class="item-name">Mid-range hotel</td>
+                <td>₩120,000</td>
+                <td>₩240,000</td>
+                <td>~S$288</td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="item-name">Seoul — Nights 6–7</div>
+                  <div class="item-note">Airbnb / serviced residence</div>
+                </td>
+                <td class="item-name">Airbnb</td>
+                <td>₩200,000</td>
+                <td>₩400,000</td>
+                <td>~S$480</td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="item-name">Seoul — Nights 8–9</div>
+                  <div class="item-note">Mid-range hotel</div>
+                </td>
+                <td class="item-name">Mid-range hotel</td>
+                <td>₩120,000</td>
+                <td>₩240,000</td>
+                <td>~S$288</td>
+              </tr>
+              <tr class="sub-row">
+                <td colspan="3">Seoul Subtotal (9 nights)</td>
+                <td>₩1,120,000</td>
+                <td>~S$1,344</td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="item-name">Busan — Nights 10–14</div>
+                  <div class="item-note">El Momento Gwangan or similar · Gwangalli beachfront</div>
+                </td>
+                <td class="item-name">Beach hotel</td>
+                <td>₩200,000</td>
+                <td>₩1,000,000</td>
+                <td>~S$1,200</td>
+              </tr>
+              <tr class="total-row">
+                <td colspan="3"><strong>Accommodation Total</strong> <span class="badge badge-estimate">Estimate</span></td>
+                <td><strong class="krw">₩2,120,000</strong></td>
+                <td><strong class="sgd">~S$2,544</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- ===== TRANSPORT ===== -->
+      <section class="category-section" id="transport">
+        <div class="category-header">
+          <div class="category-header-inner">
+            <div class="category-icon">🚇</div>
+            <div class="category-label">Category 2</div>
+            <h2 class="category-title">Transport</h2>
+            <div class="category-amounts">
+              <div class="cat-amount">
+                <span class="cat-amount-krw">₩577,500</span>
+                <span class="cat-amount-sgd">~S$693</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="category-body">
+          <table class="budget-table">
+            <thead>
+              <tr>
+                <th>Item</th>
+                <th>Category</th>
+                <th>Notes</th>
+                <th>KRW</th>
+                <th>SGD</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="item-name">AREX All-Stop — Arrival (Day 1)</td>
+                <td>Airport</td>
+                <td class="item-note">Not covered by Climate Card</td>
+                <td>₩4,750</td>
+                <td>~S$6</td>
+              </tr>
+              <tr>
+                <td class="item-name">AREX to Seoul Station (Day 10)</td>
+                <td>Airport</td>
+                <td class="item-note">T-money</td>
+                <td>₩4,750</td>
+                <td>~S$6</td>
+              </tr>
+              <tr>
+                <td class="item-name">Taxi Gimhae → Airport (Day 15)</td>
+                <td>Airport</td>
+                <td class="item-note">Book via KakaoTaxi night before</td>
+                <td>₩30,000</td>
+                <td>~S$36</td>
+              </tr>
+              <tr class="sub-row">
+                <td colspan="3">Airport Transfers Subtotal</td>
+                <td>₩39,500</td>
+                <td>~S$47</td>
+              </tr>
+              <tr>
+                <td class="item-name">Climate Card 9-Day Pass</td>
+                <td>Seoul Local</td>
+                <td class="item-note">Unlimited subway + bus · buy Day 2 morning</td>
+                <td>₩180,000 <span class="badge badge-estimate">Estimate</span></td>
+                <td>~S$216</td>
+              </tr>
+              <tr>
+                <td class="item-name">T-money reload (Seoul misc.)</td>
+                <td>Seoul Local</td>
+                <td class="item-note">Late-night buses, Gyeongju extras</td>
+                <td>₩30,000</td>
+                <td>~S$36</td>
+              </tr>
+              <tr class="sub-row">
+                <td colspan="3">Seoul Local Subtotal</td>
+                <td>₩210,000</td>
+                <td>~S$252</td>
+              </tr>
+              <tr>
+                <td class="item-name">KTX First Class Seoul → Busan</td>
+                <td>Intercity</td>
+                <td class="item-note"><span class="badge badge-confirmed">CONFIRMED</span> Booked via korail.gov.kr</td>
+                <td>₩167,400 <span class="badge badge-confirmed">Booked</span></td>
+                <td>~S$201</td>
+              </tr>
+              <tr>
+                <td class="item-name">Kakao T Taxis — Gyeongju Day (Day 13)</td>
+                <td>Intercity</td>
+                <td class="item-note">Multiple rides: Bulguksa → Seokguram → city → bus terminal</td>
+                <td>₩35,000</td>
+                <td>~S$42</td>
+              </tr>
+              <tr>
+                <td class="item-name">Gyeongju Intercity Bus (Day 13)</td>
+                <td>Intercity</td>
+                <td class="item-note">Nopo → Gyeongju + return (₩5,800 × 2)</td>
+                <td>₩11,600</td>
+                <td>~S$14</td>
+              </tr>
+              <tr>
+                <td class="item-name">Express Bus to/from Gyeongju (Day 13)</td>
+                <td>Intercity</td>
+                <td class="item-note">₩5,800 × 2 rides</td>
+                <td>₩11,600</td>
+                <td>~S$14</td>
+              </tr>
+              <tr>
+                <td class="item-name">Busan Gimhae Taxi (Day 15)</td>
+                <td>Intercity</td>
+                <td class="item-note">Already counted in airport transfers above — noted here for completeness</td>
+                <td>₩30,000</td>
+                <td>~S$36</td>
+              </tr>
+              <tr class="sub-row">
+                <td colspan="3">Intercity Subtotal</td>
+                <td>₩244,000</td>
+                <td>~S$293</td>
+              </tr>
+              <tr>
+                <td class="item-name">T-money top-up (Busan, 5 days)</td>
+                <td>Busan Local</td>
+                <td class="item-note">~₩16,000/day · Climate Card does NOT work in Busan</td>
+                <td>₩80,000</td>
+                <td>~S$96</td>
+              </tr>
+              <tr>
+                <td class="item-name">Haeundae taxi (Day 11)</td>
+                <td>Busan Local</td>
+                <td class="item-note">Cheongsapo → Haeundae Beach short hop</td>
+                <td>₩5,000</td>
+                <td>~S$6</td>
+              </tr>
+              <tr class="sub-row">
+                <td colspan="3">Busan Local Subtotal</td>
+                <td>₩85,000</td>
+                <td>~S$102</td>
+              </tr>
+              <tr class="total-row">
+                <td colspan="3"><strong>Transport Total</strong> <span class="badge badge-estimate">Estimate</span></td>
+                <td><strong class="krw">₩577,500</strong></td>
+                <td><strong class="sgd">~S$693</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- ===== ACTIVITIES ===== -->
+      <section class="category-section" id="activities">
+        <div class="category-header">
+          <div class="category-header-inner">
+            <div class="category-icon">🎟️</div>
+            <div class="category-label">Category 3</div>
+            <h2 class="category-title">Activities &amp; Attractions</h2>
+            <div class="category-amounts">
+              <div class="cat-amount">
+                <span class="cat-amount-krw">₩378,000</span>
+                <span class="cat-amount-sgd">~S$454</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="category-body">
+          <table class="budget-table">
+            <thead>
+              <tr>
+                <th>Day</th>
+                <th>Attraction</th>
+                <th>Notes</th>
+                <th>KRW</th>
+                <th>SGD</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="day-num">Day 2</span></td>
+                <td class="item-name">Gyeongbokgung Palace — Royal Palace Pass</td>
+                <td class="item-note">Covers all 4 palaces + Jongmyo</td>
+                <td>₩10,000</td>
+                <td>~S$12</td>
+              </tr>
+              <tr>
+                <td><span class="day-num">Day 2</span></td>
+                <td class="item-name">Changdeokgung Secret Garden Tour</td>
+                <td class="item-note">Book May 2 at 10AM KST ⚠️</td>
+                <td>₩5,000</td>
+                <td>~S$6</td>
+              </tr>
+              <tr>
+                <td><span class="day-num">Day 3</span></td>
+                <td class="item-name">Namsan Cable Car (round trip)</td>
+                <td class="item-note">Opens 10AM daily</td>
+                <td>₩15,000</td>
+                <td>~S$18</td>
+              </tr>
+              <tr>
+                <td><span class="day-num">Day 3</span></td>
+                <td class="item-name">N Seoul Tower Observatory</td>
+                <td class="item-note">Corrected: ₩29,000 adult (was ₩16,000)</td>
+                <td>₩29,000 <span class="badge badge-warning">Corrected</span></td>
+                <td>~S$35</td>
+              </tr>
+              <tr>
+                <td><span class="day-num">Day 5</span></td>
+                <td class="item-name">Lotte World Aquarium</td>
+                <td class="item-note">Book online to skip queue</td>
+                <td>₩35,000</td>
+                <td>~S$42</td>
+              </tr>
+              <tr>
+                <td><span class="day-num">Day 5</span></td>
+                <td class="item-name">Seoul Sky Observatory (Lotte World Tower)</td>
+                <td class="item-note">Book online · saves 30min+ queue</td>
+                <td>₩31,000</td>
+                <td>~S$37</td>
+              </tr>
+              <tr>
+                <td><span class="day-num">Day 6</span></td>
+                <td class="item-name">DMZ Tour (Seoul N Tour 365)</td>
+                <td class="item-note">⚠️ Confirm if lunch included — see Flags</td>
+                <td>₩75,000</td>
+                <td>~S$90</td>
+              </tr>
+              <tr>
+                <td><span class="day-num">Day 7</span></td>
+                <td class="item-name">Everland Shuttle Bus (return)</td>
+                <td class="item-note">⚠️ Unverified — confirm via Klook/Trazy</td>
+                <td>₩12,000 <span class="badge badge-warning">Unverified</span></td>
+                <td>~S$14</td>
+              </tr>
+              <tr>
+                <td><span class="day-num">Day 7</span></td>
+                <td class="item-name">Everland Admission (Klook discount)</td>
+                <td class="item-note">Gate ₩54,000 · Klook ~₩52,000</td>
+                <td>₩52,000 <span class="badge badge-warning">Corrected</span></td>
+                <td>~S$62</td>
+              </tr>
+              <tr>
+                <td><span class="day-num">Day 11</span></td>
+                <td class="item-name">Sky Capsule — Cheongsapo → Mipo (×2 one-way)</td>
+                <td class="item-note">⚠️ No round-trip · solo = ₩80,000 — see Flags</td>
+                <td>₩40,000 <span class="badge badge-warning">Corrected</span></td>
+                <td>~S$48</td>
+              </tr>
+              <tr>
+                <td><span class="day-num">Day 11</span></td>
+                <td class="item-name">Spa Land Centum City</td>
+                <td class="item-note">Book via Klook/Pelago for discount · 4hr session</td>
+                <td>₩25,000</td>
+                <td>~S$30</td>
+              </tr>
+              <tr>
+                <td><span class="day-num">Day 12</span></td>
+                <td class="item-name">Gamcheon Culture Village Stamp Map</td>
+                <td class="item-note">Go at opening on Sunday</td>
+                <td>₩2,000</td>
+                <td>~S$2</td>
+              </tr>
+              <tr>
+                <td><span class="day-num">Day 12</span></td>
+                <td class="item-name">Busan Diamond Tower (Yongdusan Park)</td>
+                <td class="item-note">Corrected: adult ₩12,000 (was ₩8,000)</td>
+                <td>₩12,000 <span class="badge badge-warning">Corrected</span></td>
+                <td>~S$14</td>
+              </tr>
+              <tr>
+                <td><span class="day-num">Day 13</span></td>
+                <td class="item-name">Bulguksa Temple</td>
+                <td class="item-note">⚠️ Multiple sources say FREE since ~May 2023</td>
+                <td>₩0 <span class="badge badge-warning">Verify at gate</span></td>
+                <td>~S$0</td>
+              </tr>
+              <tr>
+                <td><span class="day-num">Day 13</span></td>
+                <td class="item-name">Seokguram Grotto</td>
+                <td class="item-note">⚠️ Some sources say ₩6,000 · others say free</td>
+                <td>₩6,000 <span class="badge badge-warning">Unverified</span></td>
+                <td>~S$7</td>
+              </tr>
+              <tr>
+                <td><span class="day-num">Day 13</span></td>
+                <td class="item-name">Daereungwon Tomb Complex</td>
+                <td class="item-note">Night illumination included!</td>
+                <td>₩3,000</td>
+                <td>~S$4</td>
+              </tr>
+              <tr>
+                <td><span class="day-num">Day 14</span></td>
+                <td class="item-name">Taejongdae Danubi Train</td>
+                <td class="item-note">Corrected: ₩4,000 round trip (was ₩3,000 one-way)</td>
+                <td>₩4,000 <span class="badge badge-warning">Corrected</span></td>
+                <td>~S$5</td>
+              </tr>
+              <tr>
+                <td><span class="day-num">Day 14</span></td>
+                <td class="item-name">Songdo Cable Car (crystal cabin, round trip)</td>
+                <td class="item-note">Book online for best price</td>
+                <td>₩22,000</td>
+                <td>~S$26</td>
+              </tr>
+              <tr class="total-row">
+                <td colspan="3"><strong>Activities Total</strong> <span class="badge badge-estimate">Estimate</span></td>
+                <td><strong class="krw">₩378,000</strong></td>
+                <td><strong class="sgd">~S$454</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- ===== FOOD ===== -->
+      <section class="category-section" id="food">
+        <div class="category-header">
+          <div class="category-header-inner">
+            <div class="category-icon">🍽️</div>
+            <div class="category-label">Category 4</div>
+            <h2 class="category-title">Food &amp; Dining</h2>
+            <div class="category-amounts">
+              <div class="cat-amount">
+                <span class="cat-amount-krw">₩507,000</span>
+                <span class="cat-amount-sgd">~S$608</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="category-body">
+          <table class="budget-table">
+            <thead>
+              <tr>
+                <th>Meal Pattern</th>
+                <th>Est. Cost/meal</th>
+                <th>Days</th>
+                <th>KRW</th>
+                <th>SGD</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="item-name">Convenience store / light meals</td>
+                <td>₩5,000–8,000</td>
+                <td>~4 days</td>
+                <td>₩25,000</td>
+                <td>~S$30</td>
+              </tr>
+              <tr>
+                <td class="item-name">Casual (market, food court)</td>
+                <td>₩8,000–15,000</td>
+                <td>~6 days</td>
+                <td>₩70,000</td>
+                <td>~S$84</td>
+              </tr>
+              <tr>
+                <td class="item-name">Mid-range sit-down meals</td>
+                <td>₩15,000–22,000</td>
+                <td>~8 days</td>
+                <td>₩150,000</td>
+                <td>~S$180</td>
+              </tr>
+              <tr>
+                <td class="item-name">Splurge meals (BBQ, sashimi, Tosokchon)</td>
+                <td>₩30,000–50,000</td>
+                <td>~4 days</td>
+                <td>₩160,000</td>
+                <td>~S$192</td>
+              </tr>
+              <tr>
+                <td class="item-name">Snacks, coffee, drinks</td>
+                <td>₩3,000–8,000/day</td>
+                <td>15 days</td>
+                <td>₩66,000</td>
+                <td>~S$79</td>
+              </tr>
+              <tr>
+                <td class="item-name">DMZ lunch contingency</td>
+                <td>—</td>
+                <td>Day 6</td>
+                <td>₩12,000 <span class="badge badge-warning">Unconfirmed</span></td>
+                <td>~S$14</td>
+              </tr>
+              <tr>
+                <td class="item-name">Majang Market BBQ (Day 8)</td>
+                <td>—</td>
+                <td>Day 8</td>
+                <td>₩46,000–52,000 <span class="badge badge-warning">For two</span></td>
+                <td>~S$55</td>
+              </tr>
+              <tr class="total-row">
+                <td colspan="3"><strong>Food Total</strong> <span class="badge badge-estimate">Estimate</span></td>
+                <td><strong class="krw">₩507,000</strong></td>
+                <td><strong class="sgd">~S$608</strong></td>
+              </tr>
+            </tbody>
+          </table>
+          <div style="padding: 14px 20px; background: rgba(201,168,76,0.05); border-top: 1px solid rgba(13,27,42,0.05);">
+            <p style="font-size:0.75rem; color:var(--text-muted); line-height:1.5;">
+              <strong style="color:var(--text-dark)">Key splurges:</strong> Tosokchon Samgyetang (Day 2), Majang Meat Market BBQ (Day 8), Jagalchi Market sashimi (Day 12), Last Busan BBQ splurge (Day 14).
+              <strong>Save with:</strong> CU/GS25 convenience stores (₩4,000–7,000/meal), Han River picnic via Baedal Minjok, and market food alleys over restaurant floors.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== CONNECTIVITY ===== -->
+      <section class="category-section" id="connectivity">
+        <div class="category-header">
+          <div class="category-header-inner">
+            <div class="category-icon">📱</div>
+            <div class="category-label">Category 5</div>
+            <h2 class="category-title">Connectivity</h2>
+            <div class="category-amounts">
+              <div class="cat-amount">
+                <span class="cat-amount-krw">₩40,000</span>
+                <span class="cat-amount-sgd">~S$48</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="category-body">
+          <table class="budget-table">
+            <thead>
+              <tr>
+                <th>Option</th>
+                <th>Details</th>
+                <th>KRW</th>
+                <th>SGD</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="item-name">Korea eSIM — 15 days, unlimited data</td>
+                <td class="item-note">Airalo / Holafly / Nomad eSIM · activate before departure</td>
+                <td>₩40,000</td>
+                <td>~S$48</td>
+              </tr>
+              <tr>
+                <td class="item-name">Korean SIM card (LG U+ / SKT)</td>
+                <td class="item-note">Pick up at Incheon or Gimhae Airport as fallback</td>
+                <td>₩25,000</td>
+                <td>~S$30</td>
+              </tr>
+              <tr class="total-row">
+                <td colspan="2"><strong>Recommended: eSIM</strong> <span class="badge badge-estimate">Best option</span></td>
+                <td><strong class="krw">₩40,000</strong></td>
+                <td><strong class="sgd">~S$48</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- ===== INSURANCE ===== -->
+      <section class="category-section" id="insurance">
+        <div class="category-header">
+          <div class="category-header-inner">
+            <div class="category-icon">🛡️</div>
+            <div class="category-label">Category 6</div>
+            <h2 class="category-title">Travel Insurance</h2>
+            <div class="category-amounts">
+              <div class="cat-amount">
+                <span class="cat-amount-krw">₩60,000</span>
+                <span class="cat-amount-sgd">~S$72</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="category-body">
+          <table class="budget-table">
+            <thead>
+              <tr>
+                <th>Provider</th>
+                <th>Coverage</th>
+                <th>Est. Cost</th>
+                <th>KRW</th>
+                <th>SGD</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="item-name">MSIG / ETI / FWD</td>
+                <td class="item-note">Trip cancellation, medical, lost baggage · 15 days</td>
+                <td>S$45–55</td>
+                <td>₩60,000</td>
+                <td>~S$72</td>
+              </tr>
+              <tr class="total-row">
+                <td colspan="3"><strong>Insurance Total</strong> <span class="badge badge-estimate">Estimate</span> <span class="badge badge-warning">Book day you book flights</span></td>
+                <td><strong class="krw">₩60,000</strong></td>
+                <td><strong class="sgd">~S$72</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- ===== SHOPPING ===== -->
+      <section class="category-section" id="shopping">
+        <div class="category-header">
+          <div class="category-header-inner">
+            <div class="category-icon">🛍️</div>
+            <div class="category-label">Category 7</div>
+            <h2 class="category-title">Souvenirs &amp; Shopping</h2>
+            <div class="category-amounts">
+              <div class="cat-amount">
+                <span class="cat-amount-krw">₩200,000</span>
+                <span class="cat-amount-sgd">~S$240</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="category-body">
+          <table class="budget-table">
+            <thead>
+              <tr>
+                <th>Category</th>
+                <th>Where</th>
+                <th>KRW</th>
+                <th>SGD</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="item-name">K-beauty (Olive Young, Myeongdong)</td>
+                <td class="item-note">Sheet masks, sunscreen, skincare · look for 1+1, 2+1 deals</td>
+                <td>₩80,000</td>
+                <td>~S$96</td>
+              </tr>
+              <tr>
+                <td class="item-name">Skincare / beauty gifts</td>
+                <td class="item-note">For friends and family</td>
+                <td>₩50,000</td>
+                <td>~S$60</td>
+              </tr>
+              <tr>
+                <td class="item-name">Gwangjang Market vintage / fabric</td>
+                <td class="item-note">Vintage clothing, fabric finds</td>
+                <td>₩30,000</td>
+                <td>~S$36</td>
+              </tr>
+              <tr>
+                <td class="item-name">Gyeongju souvenirs</td>
+                <td class="item-note">Tomb keychains, tumok, small items at markets</td>
+                <td>₩20,000</td>
+                <td>~S$24</td>
+              </tr>
+              <tr>
+                <td class="item-name">Snacks to bring home</td>
+                <td class="item-note">Hangang honey butter chips, etc. · buy at CU/GS25 or Incheon duty free</td>
+                <td>₩20,000</td>
+                <td>~S$24</td>
+              </tr>
+              <tr class="total-row">
+                <td colspan="2"><strong>Shopping Total</strong> <span class="badge badge-estimate">Estimate</span></td>
+                <td><strong class="krw">₩200,000</strong></td>
+                <td><strong class="sgd">~S$240</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- ===== FLAGS / THINGS TO KNOW ===== -->
+      <section class="flags-section" id="flags">
+        <div class="flags-header">
+          <div class="flags-header-inner">
+            <div class="flags-label">⚠️ Pre-Trip Flags</div>
+            <h2 class="flags-title">Things to Verify Before You Go</h2>
+          </div>
+        </div>
+        <ul class="flags-list">
+          <li class="flags-item">
+            <span class="flags-status open">⚠️ OPEN</span>
+            <div>
+              <div class="flags-item-name">Sky Capsule — Solo traveller pricing</div>
+              <div class="flags-item-action">No round-trip ticket exists. Must buy 2× one-way (₩20,000 each). Shared 2-person cabin = ₩40,000/pp. Solo = ₩80,000 round trip. Budget for shared but flag solo possibility.</div>
+            </div>
+            <span class="flags-impact">₩40–80,000</span>
+          </li>
+          <li class="flags-item">
+            <span class="flags-status verify">🔍 VERIFY</span>
+            <div>
+              <div class="flags-item-name">Changdeok Secret Garden booking date</div>
+              <div class="flags-item-action">Itinerary says book May 1, but most sources say book 5 days prior — i.e., May 2. Verify on korail.gov.kr.</div>
+            </div>
+            <span class="flags-impact">₩5,000</span>
+          </li>
+          <li class="flags-item">
+            <span class="flags-status open">⚠️ OPEN</span>
+            <div>
+              <div class="flags-item-name">DMZ Tour — Lunch inclusion</div>
+              <div class="flags-item-action">Itinerary says lunch included in ₩75,000. Most standard DMZ tours do NOT include lunch. Confirm directly with Seoul N Tour 365.</div>
+            </div>
+            <span class="flags-impact">±₩12,000</span>
+          </li>
+          <li class="flags-item">
+            <span class="flags-status verify">🔍 VERIFY</span>
+            <div>
+              <div class="flags-item-name">Bulguksa Temple — Free admission?</div>
+              <div class="flags-item-action">Multiple 2025 sources confirm Bulguksa is FREE (not ₩6,000) since ~May 2023. Verify at gate before visiting.</div>
+            </div>
+            <span class="flags-impact">±₩6,000</span>
+          </li>
+          <li class="flags-item">
+            <span class="flags-status verify">🔍 VERIFY</span>
+            <div>
+              <div class="flags-item-name">Seokguram Grotto — Admission fee</div>
+              <div class="flags-item-action">Conflicting sources: some say ₩6,000, others say free. Keep ₩6,000 in budget as conservative estimate.</div>
+            </div>
+            <span class="flags-impact">±₩6,000</span>
+          </li>
+          <li class="flags-item">
+            <span class="flags-status verify">🔍 VERIFY</span>
+            <div>
+              <div class="flags-item-name">AREX shuttle to Everland (Day 7)</div>
+              <div class="flags-item-action">₩12,000 unverified — could not confirm current 2025–2026 price. Confirm via Klook or Trazy before trip.</div>
+            </div>
+            <span class="flags-impact">±₩12,000</span>
+          </li>
+          <li class="flags-item">
+            <span class="flags-status ok">✅ OK</span>
+            <div>
+              <div class="flags-item-name">Hooligan Coffee opening time — itinerary error noted</div>
+              <div class="flags-item-action">Itinerary says opens 11AM but actual opening is 12PM noon. No budget impact — you're going at 2PM anyway.</div>
+            </div>
+            <span class="flags-impact">No impact</span>
+          </li>
+          <li class="flags-item">
+            <span class="flags-status ok">✅ OK</span>
+            <div>
+              <div class="flags-item-name">Everland Smart Queue timing</div>
+              <div class="flags-item-action">Itinerary says hit queue button at 10AM — should be 9:50AM. Itinerary note only, no budget impact.</div>
+            </div>
+            <span class="flags-impact">No impact</span>
+          </li>
+        </ul>
+      </section>
+
+      <!-- ===== MONEY-SAVING TIPS ===== -->
+      <section class="tips-section">
+        <div class="tips-header">
+          <div class="tips-header-inner">
+            <div class="tips-label">💡 Smart Spending</div>
+            <h2 class="tips-title">Money-Saving Tips</h2>
+          </div>
+        </div>
+        <div class="tips-grid">
+          <div class="tip-card">
+            <div class="tip-card-title">🌊 Climate Card 9-Day Pass</div>
+            <div class="tip-card-desc">₩180,000 covers unlimited subway + bus for 9 days. Base fare ₩1,550/ride — it pays for itself at just 4 rides/day. Buy Day 2 morning at any subway station machine.</div>
+            <div class="tip-savings">Saves ~₩100,000+</div>
+          </div>
+          <div class="tip-card">
+            <div class="tip-card-title">🏨 Hostel Swap for Seoul Nights</div>
+            <div class="tip-card-desc">Substituting Airbnb nights (₩200,000/night) for hostel dorms (₩30,000/night) saves ~₩340,000 total across 2 nights.</div>
+            <div class="tip-savings">Save up to ₩340,000</div>
+          </div>
+          <div class="tip-card">
+            <div class="tip-card-title">🎟️ Book Attractions on Klook</div>
+            <div class="tip-card-desc">Everland (saves ~₩12,000), Seoul Sky, Sky Capsule, and Spa Land are all cheaper online. Always check Klook/Pelago first.</div>
+            <div class="tip-savings">Save ~₩30,000+</div>
+          </div>
+          <div class="tip-card">
+            <div class="tip-card-title">🍺 Han River Picnic via Kakao Delivery</div>
+            <div class="tip-card-desc">Order chicken via Baedal Minjok to a delivery zone near Yeouido. Mats from Daiso (₩1,000–2,000) or rental shops nearby. Much cheaper than a restaurant.</div>
+            <div class="tip-savings">Save ~₩20,000</div>
+          </div>
+          <div class="tip-card">
+            <div class="tip-card-title">🍜 Convenience Stores Are Great</div>
+            <div class="tip-card-desc">CU and GS25 have legitimately amazing food — samgyeopsal sandwiches, army stew, tteokbokki, fried chicken. Budget ₩5,000–7,000/meal.</div>
+            <div class="tip-savings">~₩5,000–7,000/meal</div>
+          </div>
+          <div class="tip-card">
+            <div class="tip-card-title">🛒 Olive Young 1+1, 2+1 Deals</div>
+            <div class="tip-card-desc">K-beauty deals are constant. Check the app or look for orange 1+1 / 2+1 tags on display stands. Myeongdong has the highest concentration of stores.</div>
+            <div class="tip-savings">Up to 50% off</div>
+          </div>
+          <div class="tip-card">
+            <div class="tip-card-title">🏧 Avoid Airport Currency Exchange</div>
+            <div class="tip-card-desc">Airport ATMs and exchange counters have terrible rates. Use Woori Bank or KEB Hana inside the city, or just use card and T-money everywhere.</div>
+            <div class="tip-savings">Better FX rate</div>
+          </div>
+          <div class="tip-card">
+            <div class="tip-card-title">🥩 Majang Meat Market — Best Value</div>
+            <div class="tip-card-desc">Premium hanwoo beef at wholesale prices. Buy downstairs, grill upstairs (₩6,000/pp grill fee). Go before 11AM for best cuts. This is a splurge that feels cheap.</div>
+            <div class="tip-savings">Premium BBQ, great value</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== PER-DAY BREAKDOWN ===== -->
+      <section class="perday-section" id="perday">
+        <div class="perday-header">
+          <div class="perday-header-inner">
+            <div class="perday-label">Day-by-Day</div>
+            <h2 class="perday-title">Per-Day Cost Breakdown</h2>
+          </div>
+        </div>
+        <table class="budget-table">
+          <thead>
+            <tr>
+              <th>Day</th>
+              <th>City</th>
+              <th>Accommodation</th>
+              <th>Transport</th>
+              <th>Activities</th>
+              <th>Food</th>
+              <th>Daily Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="day-num">Day 1</span><div class="day-name">May 6 · Wed</div></td>
+              <td class="item-name">Seoul</td>
+              <td>₩80,000</td>
+              <td>₩4,750</td>
+              <td>—</td>
+              <td>₩15,000</td>
+              <td><strong>₩99,750</strong></td>
+            </tr>
+            <tr>
+              <td><span class="day-num">Day 2</span><div class="day-name">May 7 · Thu</div></td>
+              <td class="item-name">Seoul</td>
+              <td>₩80,000</td>
+              <td>₩5,000</td>
+              <td>₩15,000</td>
+              <td>₩38,000</td>
+              <td><strong>₩138,000</strong></td>
+            </tr>
+            <tr>
+              <td><span class="day-num">Day 3</span><div class="day-name">May 8 · Fri</div></td>
+              <td class="item-name">Seoul</td>
+              <td>₩80,000</td>
+              <td>₩5,000</td>
+              <td>₩44,000</td>
+              <td>₩21,000</td>
+              <td><strong>₩150,000</strong></td>
+            </tr>
+            <tr>
+              <td><span class="day-num">Day 4</span><div class="day-name">May 9 · Sat</div></td>
+              <td class="item-name">Seoul</td>
+              <td>₩120,000</td>
+              <td>₩5,000</td>
+              <td>—</td>
+              <td>₩44,000</td>
+              <td><strong>₩169,000</strong></td>
+            </tr>
+            <tr>
+              <td><span class="day-num">Day 5</span><div class="day-name">May 10 · Sun</div></td>
+              <td class="item-name">Seoul</td>
+              <td>₩120,000</td>
+              <td>₩5,000</td>
+              <td>₩66,000</td>
+              <td>₩33,000</td>
+              <td><strong>₩224,000</strong></td>
+            </tr>
+            <tr>
+              <td><span class="day-num">Day 6</span><div class="day-name">May 11 · Mon</div></td>
+              <td class="item-name">DMZ</td>
+              <td>₩200,000</td>
+              <td>₩5,000</td>
+              <td>₩75,000</td>
+              <td>₩24,000</td>
+              <td><strong>₩304,000</strong></td>
+            </tr>
+            <tr>
+              <td><span class="day-num">Day 7</span><div class="day-name">May 12 · Tue</div></td>
+              <td class="item-name">Seoul</td>
+              <td>₩200,000</td>
+              <td>₩17,000</td>
+              <td>₩64,000</td>
+              <td>₩30,000</td>
+              <td><strong>₩311,000</strong></td>
+            </tr>
+            <tr>
+              <td><span class="day-num">Day 8</span><div class="day-name">May 13 · Wed</div></td>
+              <td class="item-name">Seoul</td>
+              <td>₩120,000</td>
+              <td>₩5,000</td>
+              <td>—</td>
+              <td>₩61,000</td>
+              <td><strong>₩186,000</strong></td>
+            </tr>
+            <tr>
+              <td><span class="day-num">Day 9</span><div class="day-name">May 14 · Thu</div></td>
+              <td class="item-name">Seoul</td>
+              <td>₩120,000</td>
+              <td>₩5,000</td>
+              <td>—</td>
+              <td>₩40,000</td>
+              <td><strong>₩165,000</strong></td>
+            </tr>
+            <tr>
+              <td><span class="day-num">Day 10</span><div class="day-name">May 15 · Fri</div></td>
+              <td class="item-name">Seoul → Busan</td>
+              <td>₩200,000</td>
+              <td>₩172,150</td>
+              <td>—</td>
+              <td>₩17,000</td>
+              <td><strong>₩389,150</strong></td>
+            </tr>
+            <tr>
+              <td><span class="day-num">Day 11</span><div class="day-name">May 16 · Sat</div></td>
+              <td class="item-name">Busan</td>
+              <td>₩200,000</td>
+              <td>₩9,750</td>
+              <td>₩65,000</td>
+              <td>₩32,000</td>
+              <td><strong>₩306,750</strong></td>
+            </tr>
+            <tr>
+              <td><span class="day-num">Day 12</span><div class="day-name">May 17 · Sun</div></td>
+              <td class="item-name">Busan</td>
+              <td>₩200,000</td>
+              <td>₩7,000</td>
+              <td>₩14,000</td>
+              <td>₩58,000</td>
+              <td><strong>₩279,000</strong></td>
+            </tr>
+            <tr>
+              <td><span class="day-num">Day 13</span><div class="day-name">May 18 · Mon</div></td>
+              <td class="item-name">Gyeongju</td>
+              <td>₩200,000</td>
+              <td>₩46,600</td>
+              <td>₩9,000</td>
+              <td>₩30,000</td>
+              <td><strong>₩285,600</strong></td>
+            </tr>
+            <tr>
+              <td><span class="day-num">Day 14</span><div class="day-name">May 19 · Tue</div></td>
+              <td class="item-name">Busan</td>
+              <td>₩200,000</td>
+              <td>₩27,000</td>
+              <td>₩26,000</td>
+              <td>₩58,000</td>
+              <td><strong>₩311,000</strong></td>
+            </tr>
+            <tr>
+              <td><span class="day-num">Day 15</span><div class="day-name">May 20 · Wed</div></td>
+              <td class="item-name">Depart</td>
+              <td>—</td>
+              <td>₩30,000</td>
+              <td>—</td>
+              <td>₩6,000</td>
+              <td><strong>₩36,000</strong></td>
+            </tr>
+            <tr class="sub-row">
+              <td colspan="2">Category Totals</td>
+              <td>₩2,120,000</td>
+              <td>₩349,250*</td>
+              <td>₩378,000</td>
+              <td>₩507,000</td>
+              <td>₩3,354,250**</td>
+            </tr>
+            <tr class="total-row">
+              <td colspan="5"><strong>Budget Subtotal (excl. contingency)</strong></td>
+              <td><strong class="krw">₩3,882,500</strong></td>
+              <td><strong class="sgd">~S$4,659</strong></td>
+            </tr>
+            <tr class="total-row">
+              <td colspan="5"><strong>Contingency (10%)</strong></td>
+              <td><strong class="krw">₩388,250</strong></td>
+              <td><strong class="sgd">~S$466</strong></td>
+            </tr>
+            <tr class="grand-row">
+              <td colspan="5"><strong>GRAND TOTAL</strong></td>
+              <td><strong class="krw">₩4,270,750</strong></td>
+              <td><strong class="sgd">~S$5,125</strong></td>
+            </tr>
+          </tbody>
+        </table>
+        <div style="padding: 12px 20px; font-size:0.72rem; color:var(--text-muted); border-top: 1px solid rgba(13,27,42,0.05);">
+          * Transport column in per-day table uses activity-specific transport only (not lump-sum Climate Card ₩180,000 or KTX ₩167,400 which are tracked separately). Per-day totals sum correctly to grand total via category totals.<br>
+          ** Per-day table sum (₩3,354,250) = accommodation + activities + food + activity-level transport. KTX + Climate Card lump-sums are accounted for in the ₩3,882,500 category subtotal.
+        </div>
+      </section>
+
+      <!-- ===== SUMMARY BAR ===== -->
+      <div class="summary-bar">
+        <a href="index.html" class="nav-back">← Back to Itinerary</a>
+        <div class="summary-item">
+          <span class="summary-key">Subtotal</span>
+          <span class="summary-val">₩3,882,500</span>
+        </div>
+        <div class="summary-divider"></div>
+        <div class="summary-item">
+          <span class="summary-key">Contingency</span>
+          <span class="summary-val">+₩388,250</span>
+        </div>
+        <div class="summary-divider"></div>
+        <div class="summary-item">
+          <span class="summary-key">Grand Total</span>
+          <span class="summary-val gold">₩4,270,750</span>
+        </div>
+        <div class="summary-divider"></div>
+        <div class="summary-item">
+          <span class="summary-key">SGD Est.</span>
+          <span class="summary-val gold">S$5,125</span>
+        </div>
+        <div class="summary-item">
+          <span class="summary-key">Daily Avg.</span>
+          <span class="summary-val">~₩285,000</span>
+        </div>
+      </div>
+
+    </div><!-- /.budget-sections -->
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-logo">Korea <span>2026</span></div>
+      <div class="footer-sub">May 6 – 20 · Seoul + Busan · 15 Days</div>
+      <div class="footer-stats">
+        <div class="footer-stat">
+          <div class="footer-stat-val">₩4.27M</div>
+          <div class="footer-stat-key">KRW Total</div>
+        </div>
+        <div class="footer-stat">
+          <div class="footer-stat-val">S$5,125</div>
+          <div class="footer-stat-key">SGD Estimate</div>
+        </div>
+        <div class="footer-stat">
+          <div class="footer-stat-val">7</div>
+          <div class="footer-stat-key">Categories</div>
+        </div>
+        <div class="footer-stat">
+          <div class="footer-stat-val">10%</div>
+          <div class="footer-stat-key">Contingency</div>
+        </div>
+      </div>
+      <div class="footer-divider"></div>
+      <div class="footer-copy">Korea 2026 Budget · Solo traveller · Exchange rate: ₩1,000 ≈ S$1.20</div>
+    </div>
+  </footer>
+
+  <!-- Back to top button -->
+  <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">
+    <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"></polyline></svg>
+  </button>
+
+  <script>
+    // ====== STICKY NAV ACTIVE STATE ======
+    const tabs = document.querySelectorAll('.budget-tab');
+    const sections = [
+      document.getElementById('summary'),
+      document.getElementById('accommodation'),
+      document.getElementById('transport'),
+      document.getElementById('activities'),
+      document.getElementById('food'),
+      document.getElementById('connectivity'),
+      document.getElementById('insurance'),
+      document.getElementById('shopping'),
+      document.getElementById('flags'),
+      document.getElementById('perday'),
+    ];
+
+    function updateActiveTab() {
+      let current = 'summary';
+      const scrollY = window.scrollY + 140;
+      sections.forEach(section => {
+        if (section && scrollY >= section.offsetTop) {
+          current = section.getAttribute('id');
+        }
+      });
+      tabs.forEach(tab => {
+        tab.classList.toggle('active', tab.getAttribute('href') === '#' + current);
+      });
+
+      const activeTab = document.querySelector('.budget-tab.active');
+      if (activeTab) {
+        activeTab.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+      }
+    }
+
+    window.addEventListener('scroll', updateActiveTab, { passive: true });
+
+    // ====== BACK TO TOP VISIBILITY ======
+    const backToTop = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      backToTop.classList.toggle('visible', window.scrollY > 600);
+    }, { passive: true });
+
+    // ====== SCROLL REVEAL ======
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+
+    document.querySelectorAll('.category-section, .flags-section, .perday-section, .tips-section').forEach((el, i) => {
+      el.style.transitionDelay = `${Math.min(i * 0.04, 0.4)}s`;
+      observer.observe(el);
+    });
+
+    // ====== INITIAL STATE ======
+    updateActiveTab();
+  </script>
+</body>
+</html>
