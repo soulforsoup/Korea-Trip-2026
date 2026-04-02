@@ -33,7 +33,7 @@
 
     html {
       scroll-padding-top: 60px;
-      touch-action: pan-y;
+      overflow-x: hidden;
     }
 
     body {
@@ -42,7 +42,6 @@
       color: var(--text-body);
       line-height: 1.6;
       min-height: 100%;
-      touch-action: pan-y;
     }
 
     ::selection {
@@ -65,7 +64,6 @@
       justify-content: center;
       text-align: center;
       padding: 80px 24px 60px;
-      overflow: hidden;
       background: var(--navy);
     }
 
@@ -196,6 +194,7 @@
 
     .day-nav-inner {
       overflow-x: auto;
+      overflow-y: visible;
       scrollbar-width: none;
       -ms-overflow-style: none;
     }
