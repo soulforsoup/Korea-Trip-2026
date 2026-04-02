@@ -32,9 +32,7 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     html {
-      scroll-behavior: auto;
       scroll-padding-top: 80px;
-      overscroll-behavior: auto;
     }
 
     body {
@@ -42,15 +40,8 @@
       background: var(--cream);
       color: var(--text-body);
       line-height: 1.6;
-      overscroll-behavior: auto;
       min-height: 100vh;
     }
-
-    /* Prevent any horizontal overflow at root level */
-    html { overflow-x: hidden; }
-
-    /* Keep body as the natural page scroll container */
-    main, section, article { max-width: 100%; overflow-x: hidden; }
 
     ::selection {
       background: var(--gold);
